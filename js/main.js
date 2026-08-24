@@ -1,6 +1,6 @@
 /**
  * LORENZO AIROLDI | PERSONAL WEBSITE
- * Core Interactions, Theme Switcher (Dark/Light), Post Filtering & Micro-interactions
+ * Theme Switcher, Mobile Navigation, Post Filtering & Form Handling
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,13 +56,13 @@ function initHeader() {
    3. Mobile Navigation Drawer
    -------------------------------------------------------------------------- */
 function initMobileMenu() {
-  const mobileToggle = document.querySelector('.mobile-toggle');
+  const hamburgerBtns = document.querySelectorAll('.hamburger-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileBackdrop = document.querySelector('.mobile-backdrop');
   const mobileCloseBtn = document.querySelector('.mobile-close-btn');
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-  if (!mobileToggle || !mobileMenu) return;
+  if (!mobileMenu) return;
 
   const openMenu = () => {
     mobileMenu.classList.add('open');
@@ -76,7 +76,7 @@ function initMobileMenu() {
     document.body.style.overflow = '';
   };
 
-  mobileToggle.addEventListener('click', openMenu);
+  hamburgerBtns.forEach(btn => btn.addEventListener('click', openMenu));
   if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
 
@@ -101,8 +101,8 @@ function initScrollReveal() {
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     reveals.forEach(el => observer.observe(el));
@@ -197,12 +197,12 @@ function initContactForm() {
       }
       form.reset();
       showToast('Message sent! Thanks for reaching out — I will get back to you shortly.');
-    }, 1000);
+    }, 900);
   });
 }
 
 /* --------------------------------------------------------------------------
-   7. Toast Notification Utility
+   7. Toast Notification
    -------------------------------------------------------------------------- */
 function showToast(message) {
   let toast = document.querySelector('.toast-notification');

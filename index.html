@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo Airoldi | Personal Website</title>
-  <meta name="description" content="Personal website of Lorenzo Airoldi. Real estate advisory, technology research, thoughts, and investments.">
+  <title>Lorenzo Airoldi | Developer, Builder & Creator</title>
+  <meta name="description" content="Personal website of Lorenzo Airoldi. Software developer, creator, and writer exploring code, systems, and modern digital design.">
   <meta name="author" content="Lorenzo Airoldi">
 
-  <!-- Instant Theme Script to prevent flash -->
+  <!-- Instant Theme Execution -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -18,7 +18,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lorenzo Airoldi | Personal Website">
-  <meta property="og:description" content="Consultant, investor, and thinker exploring the intersection of real estate, architecture, and technology.">
+  <meta property="og:description" content="Software developer, builder, and creator. Explore my projects, thoughts, and writings.">
   <meta property="og:url" content="https://lorenzoairoldi27.github.io/">
   <meta property="og:image" content="assets/img/logo.png">
 
@@ -28,7 +28,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -41,11 +41,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img">
-        <div style="display:flex; flex-direction:column;">
-          <span class="brand-name">Lorenzo Airoldi</span>
-          <span class="brand-tagline">Personal Hub</span>
-        </div>
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
+        <span class="brand-name">Lorenzo Airoldi</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -57,10 +54,8 @@
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
 
-        <!-- Dark / Light Theme Toggle -->
-        <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
-          <!-- Sun Icon (shown in dark mode to switch to light) -->
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -71,17 +66,16 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <!-- Moon Icon (shown in light mode to switch to dark) -->
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
       </nav>
 
-      <!-- Mobile Controls (Theme Toggle + Hamburger) -->
-      <div style="display:flex; align-items:center; gap:0.5rem;" class="mobile-toggle">
-        <button class="theme-toggle-btn" aria-label="Toggle dark and light mode" style="width:36px; height:36px;">
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Mobile Actions -->
+      <div class="mobile-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -92,12 +86,12 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
-        <button class="mobile-toggle" aria-label="Open mobile menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="hamburger-btn" aria-label="Open mobile navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -107,12 +101,12 @@
     </div>
   </header>
 
-  <!-- Mobile Backdrop & Drawer -->
+  <!-- Mobile Drawer -->
   <div class="mobile-backdrop"></div>
   <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
     <div class="mobile-menu-header">
       <div class="brand-logo">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
         <span class="brand-name">Lorenzo Airoldi</span>
       </div>
       <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
@@ -130,10 +124,10 @@
       <a href="contact.html" class="mobile-nav-link">Contact</a>
     </nav>
 
-    <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:1rem;">
+    <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
       <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
       <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
-        Milano, Italy • contact@lorenzoairoldi.com
+        contact@lorenzoairoldi.com
       </div>
     </div>
   </aside>
@@ -143,87 +137,110 @@
        ========================================================================= -->
   <section class="hero-home">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content reveal">
-          <div class="text-eyebrow">Personal Space & Perspectives</div>
-          <h1 class="heading-display">
-            Hey, I'm Lorenzo.<br>
-            Navigating property, technology & modern living.
-          </h1>
-          <p class="text-lead">
-            I'm a young consultant and investor based in Milan. I spend my time analyzing housing markets, advising private clients, exploring contemporary architecture, and writing about where the world is heading.
-          </p>
-          <div class="hero-actions">
-            <a href="about.html" class="btn btn-primary">
-              About me
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="posts.html" class="btn btn-secondary">
-              Read Posts
-            </a>
-          </div>
+      <div class="hero-content reveal">
+        <div class="text-eyebrow">Developer • Builder • Creator</div>
+        <h1 class="heading-display">
+          Hey, I'm Lorenzo Airoldi.
+        </h1>
+        <p class="text-lead">
+          I'm a software developer and creator. I build fast, elegant web applications, explore distributed systems, and write about software engineering, design, and ideas.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            Explore Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+          <a href="about.html" class="btn btn-secondary">
+            About Me
+          </a>
+          <a href="posts.html" class="btn btn-secondary">
+            Read Posts
+          </a>
         </div>
 
-        <div class="reveal reveal-delay-2">
-          <div class="hero-portrait-wrap">
-            <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
-              alt="Lorenzo Airoldi"
-              class="hero-portrait-img"
-            >
-            <div class="hero-badge-overlay">
-              <div class="hero-badge-dot"></div>
-              <div style="font-size:0.85rem; font-weight:600; color:var(--text-primary);">
-                Available for advisory & conversations
-              </div>
-            </div>
-          </div>
+        <!-- Tech Stack Chips -->
+        <div class="hero-tech-stack">
+          <span class="chip">TypeScript</span>
+          <span class="chip">React & Next.js</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Python</span>
+          <span class="chip">Go</span>
+          <span class="chip">UI/UX Design</span>
+          <span class="chip">Open Source</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       What I Do & Focus Areas
+       Featured Projects Section
        ========================================================================= -->
-  <section class="section section-alt">
+  <section class="section section-alt" id="projects">
     <div class="container">
       <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
         <div>
-          <div class="text-eyebrow">Focus Areas</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">What I Spend My Time On</h2>
+          <div class="text-eyebrow">Selected Work</div>
+          <h2 class="heading-1" style="margin-top:0.5rem;">Featured Projects</h2>
         </div>
-        <p class="text-lead" style="max-width:480px; margin:0;">
-          A blend of strategic real estate advisory, financial modeling, and building modern personal ventures.
-        </p>
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="btn-link">
+          View on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
       </div>
 
-      <div class="grid-3">
-        <!-- Area 1 -->
-        <div class="card reveal reveal-delay-1">
+      <div class="grid-2">
+        <!-- Project 1 -->
+        <div class="project-card reveal reveal-delay-1">
           <div>
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Real Estate Advisory</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Helping private clients and investors navigate prime residential acquisitions, off-market screening, and transaction negotiations in Northern Italy.
+            <h3 class="heading-3" style="margin-bottom:0.6rem;">High-Performance Dev Tools</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+              A suite of lightweight CLI utilities and developer workflow accelerators built in Go and TypeScript to streamline local development, profiling, and build automation.
             </p>
           </div>
-          <a href="about.html" class="btn-link">
-            Learn more about my approach
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
+          <div class="project-tags">
+            <span class="badge">Go</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">CLI</span>
+          </div>
         </div>
 
-        <!-- Area 2 -->
-        <div class="card reveal reveal-delay-2">
+        <!-- Project 2 -->
+        <div class="project-card reveal reveal-delay-2">
+          <div>
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="heading-3" style="margin-bottom:0.6rem;">Minimalist UI & Component System</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+              An accessible, themeable design system featuring zero-dependency micro-interactions, dark/light token architecture, and fluid typography.
+            </p>
+          </div>
+          <div class="project-tags">
+            <span class="badge">CSS3</span>
+            <span class="badge">React</span>
+            <span class="badge">Design Systems</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal reveal-delay-1">
           <div>
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -232,53 +249,55 @@
                 <line x1="6" y1="20" x2="6" y2="14"></line>
               </svg>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Market Research & Notes</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Writing quarterly macro breakdowns, analyzing neighborhood transformations, and evaluating how interest rates shape housing supply.
+            <h3 class="heading-3" style="margin-bottom:0.6rem;">Real-time Metrics Dashboard</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+              Interactive full-stack telemetry and analytics platform with WebSocket live streaming, custom charting widgets, and automated alert dispatch.
             </p>
           </div>
-          <a href="posts.html" class="btn-link">
-            Explore recent essays
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
+          <div class="project-tags">
+            <span class="badge">Next.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">WebSockets</span>
+          </div>
         </div>
 
-        <!-- Area 3 -->
-        <div class="card reveal reveal-delay-3">
+        <!-- Project 4 -->
+        <div class="project-card reveal reveal-delay-2">
           <div>
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Technology & Living</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Passionate about sustainable architecture, proptech innovation, smart home infrastructure, and modern productivity tooling.
+            <h3 class="heading-3" style="margin-bottom:0.6rem;">Distributed Microservices API</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+              Containerized backend infrastructure with rate limiting, JWT token management, and structured logging designed for high throughput and fault tolerance.
             </p>
           </div>
-          <a href="about.html" class="btn-link">
-            Read my story
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
+          <div class="project-tags">
+            <span class="badge">Docker</span>
+            <span class="badge">Python</span>
+            <span class="badge">PostgreSQL</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Recent Posts
+       Recent Writing
        ========================================================================= -->
   <section class="section">
     <div class="container">
       <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
         <div>
-          <div class="text-eyebrow">Writing & Reflections</div>
+          <div class="text-eyebrow">Writing</div>
           <h2 class="heading-1" style="margin-top:0.5rem;">Recent Posts</h2>
         </div>
         <a href="posts.html" class="btn-link">
-          View all posts
+          All Posts
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -289,13 +308,6 @@
       <div class="grid-3">
         <!-- Post 1 -->
         <article class="post-card reveal reveal-delay-1">
-          <div class="post-media">
-            <span class="badge post-category-badge">Real Estate</span>
-            <img 
-              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" 
-              alt="Milan city skyline"
-            >
-          </div>
           <div class="post-content">
             <div>
               <div class="post-meta">
@@ -304,30 +316,21 @@
                 <span>6 min read</span>
               </div>
               <h3 class="post-title">
-                <a href="article.html">Navigating Prime Real Estate in 2026: Interest Rates & Urban Migration</a>
+                <a href="article.html">Architecting Modern Web Applications in 2026</a>
               </h3>
               <p class="post-excerpt">
-                An analysis of how shifted monetary policy and evolving luxury demands are reshaping key metropolitan sub-markets.
+                A breakdown of modern frontend architectures, edge compute primitives, and why simplicity is the ultimate scalability strategy.
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <span class="badge">Engineering</span>
+              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
 
         <!-- Post 2 -->
         <article class="post-card reveal reveal-delay-2">
-          <div class="post-media">
-            <span class="badge post-category-badge">Architecture</span>
-            <img 
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-              alt="Minimalist modern interior living room"
-            >
-          </div>
           <div class="post-content">
             <div>
               <div class="post-meta">
@@ -336,30 +339,21 @@
                 <span>5 min read</span>
               </div>
               <h3 class="post-title">
-                <a href="article.html">The Essential Due Diligence Checklist for Historical Renovations</a>
+                <a href="article.html">The Art of Minimalist UI Design</a>
               </h3>
               <p class="post-excerpt">
-                Crucial steps to identify structural integrity, preservation covenants, and energy-efficiency modernization options.
+                Why removing visual clutter, respecting whitespace, and refining typography leads to higher user trust and engagement.
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <span class="badge">Design</span>
+              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
 
         <!-- Post 3 -->
         <article class="post-card reveal reveal-delay-3">
-          <div class="post-media">
-            <span class="badge post-category-badge">Technology</span>
-            <img 
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
-              alt="Contemporary architectural villa"
-            >
-          </div>
           <div class="post-content">
             <div>
               <div class="post-meta">
@@ -368,17 +362,15 @@
                 <span>4 min read</span>
               </div>
               <h3 class="post-title">
-                <a href="article.html">Smart Homes & Sustainable Architecture: What Modern Buyers Value Most</a>
+                <a href="article.html">Building Fast, Resilient Systems from Scratch</a>
               </h3>
               <p class="post-excerpt">
-                Why passive-solar orientation, integrated energy storage, and discrete automation now command significant premiums.
+                Practical techniques for avoiding dependency bloat, managing state efficiently, and writing clean, maintainable code.
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <span class="badge">Systems</span>
+              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
@@ -387,19 +379,19 @@
   </section>
 
   <!-- =========================================================================
-       Personal Connect Callout
+       Connect Callout
        ========================================================================= -->
   <section class="section section-alt">
     <div class="container container-narrow text-center reveal">
       <h2 class="heading-1" style="margin-bottom:1rem;">
-        Let's connect.
+        Let's build something together.
       </h2>
       <p class="text-lead" style="margin-bottom:2rem;">
-        Whether you have questions about the market, want to discuss a potential partnership, or simply want to chat about architecture and technology, feel free to drop me a line.
+        Whether you want to discuss a project, collaborate on open source, or simply connect, feel free to reach out.
       </p>
       <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-primary">
-          Contact Me
+          Get in Touch
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -418,7 +410,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div style="display:flex; align-items:center; gap:0.75rem;">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" style="width:28px; height:28px; border-radius:6px;">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
         <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
         <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
       </div>
@@ -431,17 +423,16 @@
       </div>
 
       <div class="footer-socials">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
           </svg>
         </a>
         <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">

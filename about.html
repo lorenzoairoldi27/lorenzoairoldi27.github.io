@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About me | Lorenzo Airoldi</title>
-  <meta name="description" content="Learn about Lorenzo Airoldi — background, philosophy, real estate consulting, technology interests, and career journey.">
+  <meta name="description" content="About Lorenzo Airoldi. Background, technical stack, engineering principles, and journey as a software developer and creator.">
   <meta name="author" content="Lorenzo Airoldi">
 
-  <!-- Instant Theme Script -->
+  <!-- Instant Theme Execution -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -18,7 +18,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="About me | Lorenzo Airoldi">
-  <meta property="og:description" content="Personal narrative, background, and philosophy of Lorenzo Airoldi.">
+  <meta property="og:description" content="Background, technical stack, and principles of Lorenzo Airoldi.">
   <meta property="og:url" content="https://lorenzoairoldi27.github.io/about.html">
   <meta property="og:image" content="assets/img/logo.png">
 
@@ -28,7 +28,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -41,11 +41,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img">
-        <div style="display:flex; flex-direction:column;">
-          <span class="brand-name">Lorenzo Airoldi</span>
-          <span class="brand-tagline">Personal Hub</span>
-        </div>
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
+        <span class="brand-name">Lorenzo Airoldi</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -57,8 +54,8 @@
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
 
-        <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -69,16 +66,16 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
       </nav>
 
-      <!-- Mobile Controls -->
-      <div style="display:flex; align-items:center; gap:0.5rem;" class="mobile-toggle">
-        <button class="theme-toggle-btn" aria-label="Toggle dark and light mode" style="width:36px; height:36px;">
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Mobile Actions -->
+      <div class="mobile-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -89,12 +86,12 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
-        <button class="mobile-toggle" aria-label="Open mobile menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="hamburger-btn" aria-label="Open mobile navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -109,7 +106,7 @@
   <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
     <div class="mobile-menu-header">
       <div class="brand-logo">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
         <span class="brand-name">Lorenzo Airoldi</span>
       </div>
       <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
@@ -127,10 +124,10 @@
       <a href="contact.html" class="mobile-nav-link">Contact</a>
     </nav>
 
-    <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:1rem;">
+    <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
       <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
       <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
-        Milano, Italy • contact@lorenzoairoldi.com
+        contact@lorenzoairoldi.com
       </div>
     </div>
   </aside>
@@ -143,94 +140,79 @@
       <div class="page-header-content reveal">
         <div class="text-eyebrow">About me</div>
         <h1 class="heading-1" style="margin-top:0.75rem; margin-bottom:0.75rem;">
-          Bridging analysis, architecture & long-term thinking.
+          Building software with care and curiosity.
         </h1>
         <p class="text-lead">
-          A glimpse into my background, what drives my work, and how I approach the world of property and technology.
+          A deeper look into who I am, my technical background, engineering philosophy, and the tools I use every day.
         </p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Personal Narrative & Bio
+       Bio & Narrative
        ========================================================================= -->
   <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items:center; gap:3.5rem;">
-        <div class="reveal">
-          <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" 
-            alt="Lorenzo Airoldi"
-            style="border-radius:var(--radius-lg); width:100%; aspect-ratio:4/5; object-fit:cover; box-shadow:var(--shadow-card); border:1px solid var(--border-card);"
-          >
-        </div>
-
-        <div class="reveal reveal-delay-1">
-          <div class="text-eyebrow">The Story</div>
-          <h2 class="heading-2" style="margin-top:0.5rem; margin-bottom:1.25rem;">
-            Curious about spaces, markets, and the future of living.
-          </h2>
-          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:1.25rem;">
-            Based in Milan, I work at the intersection of economic analysis and contemporary real estate. My interest began with a fascination for urban development—how cities evolve, how architecture influences well-being, and how capital flows shape the skylines of modern Europe.
-          </p>
-          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:1.25rem;">
-            Having studied economics and financial management, I naturally bring a data-oriented mindset to real estate. Rather than viewing property purely through traditional sales channels, I treat it as an asset class where structural quality, bioclimatic efficiency, and location scarcity converge.
-          </p>
-          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:2rem;">
-            Beyond client advisory, I actively research housing trends, write essays on market dynamics, and explore the potential of proptech and smart sustainable architecture.
-          </p>
-
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="posts.html" class="btn btn-primary">Read my posts</a>
-            <a href="contact.html" class="btn btn-secondary">Get in touch</a>
-          </div>
-        </div>
+    <div class="container container-narrow">
+      <div class="reveal" style="display:flex; flex-direction:column; gap:1.5rem; font-size:1.05rem; line-height:1.75; color:var(--text-secondary);">
+        <p>
+          I'm <strong>Lorenzo Airoldi</strong>, a software developer and creator based in Italy. I have a deep passion for building polished digital experiences, exploring distributed systems, and turning complex ideas into clean, usable code.
+        </p>
+        <p>
+          My journey in programming started from a desire to create and understand how things work under the hood. Over the years, I've worked across the full stack—from designing intuitive UI interfaces and themeable design systems to architecting high-performance backend microservices and CLI tools.
+        </p>
+        <p>
+          When I'm not writing code or experimenting with new technologies, you can find me reading about systems design, writing essays on productivity and technology, or exploring new cities and architecture.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Core Principles
+       Tech Stack & Tooling
        ========================================================================= -->
   <section class="section section-alt">
     <div class="container">
-      <div class="text-center reveal" style="max-width:640px; margin:0 auto 3.5rem;">
-        <div class="text-eyebrow">Principles</div>
-        <h2 class="heading-1" style="margin-top:0.5rem; margin-bottom:0.75rem;">How I Think & Work</h2>
-        <p class="text-lead">
-          Three pillars that define my approach to advisory, investments, and personal projects.
-        </p>
+      <div class="text-center reveal" style="max-width:620px; margin:0 auto 3rem;">
+        <div class="text-eyebrow">Technologies</div>
+        <h2 class="heading-1" style="margin-top:0.5rem; margin-bottom:0.5rem;">My Tech Stack</h2>
+        <p class="text-lead">Languages, frameworks, and tools I use to bring ideas to life.</p>
       </div>
 
       <div class="grid-3">
+        <!-- Group 1 -->
         <div class="card reveal reveal-delay-1">
-          <div>
-            <div style="font-family:var(--font-serif); font-size:2rem; font-weight:600; color:var(--accent-light); margin-bottom:0.5rem;">01</div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Intellectual Honesty</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.65;">
-              Clear, unvarnished perspectives. Whether evaluating a residential acquisition or analyzing market numbers, I value genuine clarity over optimistic bias.
-            </p>
+          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Languages</h3>
+          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
+            <div>• TypeScript / JavaScript (ESNext)</div>
+            <div>• Python (FastAPI, Data, Scripting)</div>
+            <div>• Go (CLI tools, Concurrency, APIs)</div>
+            <div>• HTML5 & Modern CSS3 / SASS</div>
+            <div>• SQL (PostgreSQL, SQLite)</div>
           </div>
         </div>
 
+        <!-- Group 2 -->
         <div class="card reveal reveal-delay-2">
-          <div>
-            <div style="font-family:var(--font-serif); font-size:2rem; font-weight:600; color:var(--accent-light); margin-bottom:0.5rem;">02</div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Data & Deep Research</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.65;">
-              Every thesis and recommendation is grounded in micro-market data, cadastral verification, yield models, and historical context.
-            </p>
+          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Frameworks & Libs</h3>
+          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
+            <div>• React & Next.js</div>
+            <div>• Node.js & Express</div>
+            <div>• Tailwind CSS & CSS Modules</div>
+            <div>• WebSockets & WebRTC</div>
+            <div>• REST & GraphQL APIs</div>
           </div>
         </div>
 
+        <!-- Group 3 -->
         <div class="card reveal reveal-delay-3">
-          <div>
-            <div style="font-family:var(--font-serif); font-size:2rem; font-weight:600; color:var(--accent-light); margin-bottom:0.5rem;">03</div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Long-Term Perspective</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.65;">
-              Real estate and meaningful relationships are built over decades. I prioritize enduring asset quality, sustainability, and authentic trust over short-term wins.
-            </p>
+          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Tools & Environment</h3>
+          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
+            <div>• Git & GitHub CI/CD Actions</div>
+            <div>• Docker & Containerization</div>
+            <div>• Linux & Bash Scripting</div>
+            <div>• VS Code & Neovim</div>
+            <div>• Figma (UI/UX Prototyping)</div>
           </div>
         </div>
       </div>
@@ -238,49 +220,40 @@
   </section>
 
   <!-- =========================================================================
-       Timeline & Journey
+       Principles
        ========================================================================= -->
   <section class="section">
     <div class="container container-narrow">
       <div class="reveal" style="margin-bottom:2.5rem;">
-        <div class="text-eyebrow">Milestones</div>
-        <h2 class="heading-1" style="margin-top:0.5rem;">My Journey So Far</h2>
+        <div class="text-eyebrow">Philosophy</div>
+        <h2 class="heading-1" style="margin-top:0.5rem;">How I Approach Software</h2>
       </div>
 
       <div class="timeline reveal">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2025 — Present</div>
-          <h3 class="timeline-title">Independent Real Estate Advisory & Research</h3>
+          <div class="timeline-year">Principle 01</div>
+          <h3 class="timeline-title">Simplicity Over Cleverness</h3>
           <p class="timeline-desc">
-            Advising private clients and modern investors on high-end property acquisitions in Milan and Lombardy, while publishing quarterly market notes.
+            Clean, readable code with minimal dependencies is always easier to debug, maintain, and scale than over-engineered abstractions.
           </p>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2023 — 2025</div>
-          <h3 class="timeline-title">Real Estate Consultant & Property Analyst</h3>
+          <div class="timeline-year">Principle 02</div>
+          <h3 class="timeline-title">Obsession with Performance & UX</h3>
           <p class="timeline-desc">
-            Conducted valuation modeling and property screening for premium residential transactions, deepening relationships with architects and private sellers.
+            Speed is a feature. Fast load times, responsive interactions, and thoughtful visual feedback elevate good software into exceptional software.
           </p>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-year">2022</div>
-          <h3 class="timeline-title">Real Estate Licensure & Certification</h3>
+          <div class="timeline-year">Principle 03</div>
+          <h3 class="timeline-title">Continuous Learning & Building</h3>
           <p class="timeline-desc">
-            Completed formal certification with full training in property law, valuation methods, and regulatory compliance.
-          </p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">2019 — 2022</div>
-          <h3 class="timeline-title">B.Sc. in Economics & Financial Management</h3>
-          <p class="timeline-desc">
-            Studied macroeconomics, asset pricing, econometrics, and quantitative market analysis with a strong focus on capital markets.
+            The best way to master new concepts is by shipping real projects, testing assumptions, and sharing the journey openly.
           </p>
         </div>
       </div>
@@ -293,7 +266,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div style="display:flex; align-items:center; gap:0.75rem;">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" style="width:28px; height:28px; border-radius:6px;">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
         <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
         <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
       </div>
@@ -306,17 +279,16 @@
       </div>
 
       <div class="footer-socials">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
           </svg>
         </a>
         <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">
