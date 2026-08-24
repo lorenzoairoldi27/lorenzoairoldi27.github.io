@@ -1,13 +1,368 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=posts.html">
-  <title>Redirecting to Posts...</title>
-  <link rel="canonical" href="https://lorenzoairoldi27.github.io/posts.html">
-  <script>window.location.href = "posts.html";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Lorenzo Airoldi</title>
+  <meta name="description" content="Essays, tutorials, and notes on software engineering, web development, UI design, and systems architecture by Lorenzo Airoldi.">
+  <meta name="author" content="Lorenzo Airoldi">
+
+  <!-- Instant Theme Execution -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog | Lorenzo Airoldi">
+  <meta property="og:description" content="Articles on software development, design, and technology by Lorenzo Airoldi.">
+  <meta property="og:url" content="https://lorenzoairoldi27.github.io/blog.html">
+  <meta property="og:image" content="assets/img/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="font-family:sans-serif; background:#0B0F17; color:#fff; display:flex; align-items:center; justify-content:center; height:100vh;">
-  <p>Redirecting to <a href="posts.html" style="color:#6366F1;">Posts & Essays</a>...</p>
+<body>
+
+  <!-- =========================================================================
+       Navigation Header (Order: Home, Blog, About me, Get in touch)
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
+        <span class="brand-name">Lorenzo Airoldi</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+          <a href="about.html" class="nav-link">About me</a>
+          <a href="contact.html" class="nav-link">Get in touch</a>
+        </div>
+
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Actions -->
+      <div class="mobile-actions">
+        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="hamburger-btn" aria-label="Open mobile navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-backdrop"></div>
+  <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
+        <span class="brand-name">Lorenzo Airoldi</span>
+      </div>
+      <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="blog.html" class="mobile-nav-link active">Blog</a>
+      <a href="about.html" class="mobile-nav-link">About me</a>
+      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
+    </nav>
+
+    <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
+      <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
+      <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
+        contact@lorenzoairoldi.com
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       Page Header
+       ========================================================================= -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-content reveal">
+        <div class="text-eyebrow">Blog</div>
+        <h1 class="heading-1" style="margin-top:0.75rem; margin-bottom:0.75rem;">
+          Writing & Notes
+        </h1>
+        <p class="text-lead">
+          Reflections on software development, UI/UX design, distributed systems, and building digital products.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Blog Filter Bar & Articles Grid
+       ========================================================================= -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar reveal">
+        <div class="filter-tags">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="development">Development</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="systems">Systems</button>
+          <button class="filter-btn" data-filter="thoughts">Thoughts</button>
+        </div>
+
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="blog-search-input" placeholder="Search articles...">
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="grid-3" id="blog-grid">
+        <!-- Post 1 -->
+        <article class="blog-item blog-card reveal reveal-delay-1" data-category="development">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>August 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">Architecting Modern Web Applications in 2026</a>
+              </h3>
+              <p class="blog-excerpt">
+                A breakdown of modern frontend architectures, edge compute primitives, and why simplicity is the ultimate scalability strategy.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Development</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-item blog-card reveal reveal-delay-2" data-category="design">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>July 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">The Art of Minimalist UI Design</a>
+              </h3>
+              <p class="blog-excerpt">
+                Why removing visual clutter, respecting whitespace, and refining typography leads to higher user trust and engagement.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Design</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-item blog-card reveal reveal-delay-3" data-category="systems">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>June 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">Building Fast, Resilient Systems from Scratch</a>
+              </h3>
+              <p class="blog-excerpt">
+                Practical techniques for avoiding dependency bloat, managing state efficiently, and writing clean, maintainable code.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Systems</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-item blog-card reveal reveal-delay-1" data-category="development">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>May 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>7 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">Mastering TypeScript: Advanced Types & Generics</a>
+              </h3>
+              <p class="blog-excerpt">
+                A hands-on guide to conditional types, template literal types, and writing type-safe APIs without excessive boilerplate.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Development</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-item blog-card reveal reveal-delay-2" data-category="thoughts">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>April 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">On Building in Public & Developing Long-Term Craft</a>
+              </h3>
+              <p class="blog-excerpt">
+                Why sharing research openly, staying intellectually honest, and compounding small advantages produces outsized outcomes.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Thoughts</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="blog-item blog-card reveal reveal-delay-3" data-category="design">
+          <div class="blog-content">
+            <div>
+              <div class="blog-meta">
+                <span>March 2026</span>
+                <span class="blog-meta-dot"></span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="article.html">Dark Mode Architecture: Contrast, Tokens & Zero-Flicker</a>
+              </h3>
+              <p class="blog-excerpt">
+                Techniques for implementing fluid, accessible dark themes with CSS custom properties and instant script hydration.
+              </p>
+            </div>
+            <div class="blog-footer">
+              <span class="badge">Design</span>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Empty State -->
+      <div id="blog-empty-state" style="display:none; text-align:center; padding:4rem 2rem; background:var(--bg-card); border-radius:var(--radius-md); border:1px solid var(--border-card); margin-top:2rem;">
+        <h3 class="heading-3" style="margin-bottom:0.5rem;">No matching articles found</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem;">Try another keyword or select a different category filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
+        <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
+        <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
+      </div>
+
+      <div class="footer-nav">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="blog.html" class="footer-link">Blog</a>
+        <a href="about.html" class="footer-link">About me</a>
+        <a href="contact.html" class="footer-link">Get in touch</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>

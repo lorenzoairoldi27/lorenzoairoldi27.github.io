@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo Airoldi | Developer, Builder & Creator</title>
+  <title>Lorenzo Airoldi | Personal Website</title>
   <meta name="description" content="Personal website of Lorenzo Airoldi. Software developer, creator, and writer exploring code, systems, and modern digital design.">
   <meta name="author" content="Lorenzo Airoldi">
 
@@ -45,13 +45,13 @@
         <span class="brand-name">Lorenzo Airoldi</span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (Order: Home, Blog, About me, Get in touch) -->
       <nav class="nav-desktop" aria-label="Primary Navigation">
         <div class="nav-links">
           <a href="index.html" class="nav-link active">Home</a>
+          <a href="blog.html" class="nav-link">Blog</a>
           <a href="about.html" class="nav-link">About me</a>
-          <a href="posts.html" class="nav-link">Posts</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="nav-link">Get in touch</a>
         </div>
 
         <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
@@ -119,9 +119,9 @@
 
     <nav class="mobile-nav-links">
       <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
       <a href="about.html" class="mobile-nav-link">About me</a>
-      <a href="posts.html" class="mobile-nav-link">Posts</a>
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
     </nav>
 
     <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
@@ -133,44 +133,63 @@
   </aside>
 
   <!-- =========================================================================
-       Hero Section
+       Hero Section (With Lorenzo's Photo)
        ========================================================================= -->
   <section class="hero-home">
     <div class="container">
-      <div class="hero-content reveal">
-        <div class="text-eyebrow">Developer • Builder • Creator</div>
-        <h1 class="heading-display">
-          Hey, I'm Lorenzo Airoldi.
-        </h1>
-        <p class="text-lead">
-          I'm a software developer and creator. I build fast, elegant web applications, explore distributed systems, and write about software engineering, design, and ideas.
-        </p>
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="text-eyebrow">Developer • Builder • Creator</div>
+          <h1 class="heading-display">
+            Hey, I'm Lorenzo Airoldi.
+          </h1>
+          <p class="text-lead">
+            I'm a software developer and creator. I build fast, elegant web applications, explore distributed systems, and write about software engineering, design, and ideas.
+          </p>
 
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">
-            Explore Projects
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-          <a href="about.html" class="btn btn-secondary">
-            About Me
-          </a>
-          <a href="posts.html" class="btn btn-secondary">
-            Read Posts
-          </a>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              Explore Projects
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+            <a href="blog.html" class="btn btn-secondary">
+              Read Blog
+            </a>
+            <a href="about.html" class="btn btn-secondary">
+              About Me
+            </a>
+          </div>
+
+          <!-- Tech Stack Chips -->
+          <div class="hero-tech-stack">
+            <span class="chip">TypeScript</span>
+            <span class="chip">React & Next.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Python</span>
+            <span class="chip">Go</span>
+            <span class="chip">UI/UX Design</span>
+            <span class="chip">Open Source</span>
+          </div>
         </div>
 
-        <!-- Tech Stack Chips -->
-        <div class="hero-tech-stack">
-          <span class="chip">TypeScript</span>
-          <span class="chip">React & Next.js</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">Python</span>
-          <span class="chip">Go</span>
-          <span class="chip">UI/UX Design</span>
-          <span class="chip">Open Source</span>
+        <!-- Lorenzo's Portrait Photo -->
+        <div class="reveal reveal-delay-2" style="display:flex; justify-content:center;">
+          <div class="portrait-wrapper">
+            <img 
+              src="assets/img/lorenzo.jpg" 
+              alt="Lorenzo Airoldi" 
+              class="portrait-image"
+              width="380"
+              height="475"
+            >
+            <div class="portrait-badge">
+              <div class="portrait-badge-dot"></div>
+              <span>Software Developer & Creator</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -287,16 +306,16 @@
   </section>
 
   <!-- =========================================================================
-       Recent Writing
+       Recent Blog Posts
        ========================================================================= -->
   <section class="section">
     <div class="container">
       <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
         <div>
           <div class="text-eyebrow">Writing</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">Recent Posts</h2>
+          <h2 class="heading-1" style="margin-top:0.5rem;">Recent Blog Posts</h2>
         </div>
-        <a href="posts.html" class="btn-link">
+        <a href="blog.html" class="btn-link">
           All Posts
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -307,22 +326,22 @@
 
       <div class="grid-3">
         <!-- Post 1 -->
-        <article class="post-card reveal reveal-delay-1">
-          <div class="post-content">
+        <article class="blog-card reveal reveal-delay-1">
+          <div class="blog-content">
             <div>
-              <div class="post-meta">
+              <div class="blog-meta">
                 <span>August 2026</span>
-                <span class="post-meta-dot"></span>
+                <span class="blog-meta-dot"></span>
                 <span>6 min read</span>
               </div>
-              <h3 class="post-title">
+              <h3 class="blog-title">
                 <a href="article.html">Architecting Modern Web Applications in 2026</a>
               </h3>
-              <p class="post-excerpt">
+              <p class="blog-excerpt">
                 A breakdown of modern frontend architectures, edge compute primitives, and why simplicity is the ultimate scalability strategy.
               </p>
             </div>
-            <div class="post-footer">
+            <div class="blog-footer">
               <span class="badge">Engineering</span>
               <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
@@ -330,22 +349,22 @@
         </article>
 
         <!-- Post 2 -->
-        <article class="post-card reveal reveal-delay-2">
-          <div class="post-content">
+        <article class="blog-card reveal reveal-delay-2">
+          <div class="blog-content">
             <div>
-              <div class="post-meta">
+              <div class="blog-meta">
                 <span>July 2026</span>
-                <span class="post-meta-dot"></span>
+                <span class="blog-meta-dot"></span>
                 <span>5 min read</span>
               </div>
-              <h3 class="post-title">
+              <h3 class="blog-title">
                 <a href="article.html">The Art of Minimalist UI Design</a>
               </h3>
-              <p class="post-excerpt">
+              <p class="blog-excerpt">
                 Why removing visual clutter, respecting whitespace, and refining typography leads to higher user trust and engagement.
               </p>
             </div>
-            <div class="post-footer">
+            <div class="blog-footer">
               <span class="badge">Design</span>
               <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
@@ -353,22 +372,22 @@
         </article>
 
         <!-- Post 3 -->
-        <article class="post-card reveal reveal-delay-3">
-          <div class="post-content">
+        <article class="blog-card reveal reveal-delay-3">
+          <div class="blog-content">
             <div>
-              <div class="post-meta">
+              <div class="blog-meta">
                 <span>June 2026</span>
-                <span class="post-meta-dot"></span>
+                <span class="blog-meta-dot"></span>
                 <span>4 min read</span>
               </div>
-              <h3 class="post-title">
+              <h3 class="blog-title">
                 <a href="article.html">Building Fast, Resilient Systems from Scratch</a>
               </h3>
-              <p class="post-excerpt">
+              <p class="blog-excerpt">
                 Practical techniques for avoiding dependency bloat, managing state efficiently, and writing clean, maintainable code.
               </p>
             </div>
-            <div class="post-footer">
+            <div class="blog-footer">
               <span class="badge">Systems</span>
               <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
@@ -417,9 +436,9 @@
 
       <div class="footer-nav">
         <a href="index.html" class="footer-link">Home</a>
+        <a href="blog.html" class="footer-link">Blog</a>
         <a href="about.html" class="footer-link">About me</a>
-        <a href="posts.html" class="footer-link">Posts</a>
-        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="contact.html" class="footer-link">Get in touch</a>
       </div>
 
       <div class="footer-socials">

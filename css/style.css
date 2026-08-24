@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .grid-3 {
@@ -593,7 +593,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   7. Hero Sections
+   7. Hero & Portrait Component
    -------------------------------------------------------------------------- */
 .hero-home {
   padding-top: calc(var(--header-height) + 3.5rem);
@@ -601,8 +601,14 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
 .hero-content {
-  max-width: 760px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -621,7 +627,55 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+}
+
+.portrait-wrapper {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.portrait-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-smooth);
+}
+
+.portrait-wrapper:hover .portrait-image {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.portrait-badge {
+  position: absolute;
+  bottom: -1rem;
+  left: -0.75rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.15rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.portrait-badge-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10B981;
+  flex-shrink: 0;
 }
 
 /* Page Header (Inner Pages) */
@@ -710,9 +764,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   9. Post / Article Cards
+   9. Blog / Article Cards
    -------------------------------------------------------------------------- */
-.post-card {
+.blog-card {
   background-color: var(--bg-card);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -724,13 +778,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
 }
 
-.post-card:hover {
+.blog-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-hover);
   box-shadow: var(--shadow-hover);
 }
 
-.post-content {
+.blog-content {
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -738,7 +792,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
 }
 
-.post-meta {
+.blog-meta {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -747,32 +801,32 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.75rem;
 }
 
-.post-meta-dot {
+.blog-meta-dot {
   width: 4px;
   height: 4px;
   background-color: var(--text-muted);
   border-radius: 50%;
 }
 
-.post-title {
+.blog-title {
   font-size: 1.25rem;
   line-height: 1.35;
   margin-bottom: 0.75rem;
   transition: color var(--transition-fast);
 }
 
-.post-card:hover .post-title {
+.blog-card:hover .blog-title {
   color: var(--accent-light);
 }
 
-.post-excerpt {
+.blog-excerpt {
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
 }
 
-.post-footer {
+.blog-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -781,7 +835,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   10. Blog & Filter Controls
+   10. Blog Filters & Search
    -------------------------------------------------------------------------- */
 .filter-bar {
   display: flex;
@@ -1118,6 +1172,13 @@ textarea.form-control {
    15. Responsive Media Queries
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .portrait-wrapper {
+    max-width: 320px;
+  }
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -36,7 +36,7 @@
 <body>
 
   <!-- =========================================================================
-       Navigation Header
+       Navigation Header (Order: Home, Blog, About me, Get in touch)
        ========================================================================= -->
   <header class="site-header">
     <div class="container header-inner">
@@ -49,9 +49,9 @@
       <nav class="nav-desktop" aria-label="Primary Navigation">
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
+          <a href="blog.html" class="nav-link">Blog</a>
           <a href="about.html" class="nav-link active">About me</a>
-          <a href="posts.html" class="nav-link">Posts</a>
-          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="nav-link">Get in touch</a>
         </div>
 
         <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
@@ -119,9 +119,9 @@
 
     <nav class="mobile-nav-links">
       <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="blog.html" class="mobile-nav-link">Blog</a>
       <a href="about.html" class="mobile-nav-link active">About me</a>
-      <a href="posts.html" class="mobile-nav-link">Posts</a>
-      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
     </nav>
 
     <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
@@ -150,20 +150,42 @@
   </section>
 
   <!-- =========================================================================
-       Bio & Narrative
+       Bio & Narrative (With Lorenzo's Photo)
        ========================================================================= -->
   <section class="section">
-    <div class="container container-narrow">
-      <div class="reveal" style="display:flex; flex-direction:column; gap:1.5rem; font-size:1.05rem; line-height:1.75; color:var(--text-secondary);">
-        <p>
-          I'm <strong>Lorenzo Airoldi</strong>, a software developer and creator based in Italy. I have a deep passion for building polished digital experiences, exploring distributed systems, and turning complex ideas into clean, usable code.
-        </p>
-        <p>
-          My journey in programming started from a desire to create and understand how things work under the hood. Over the years, I've worked across the full stack—from designing intuitive UI interfaces and themeable design systems to architecting high-performance backend microservices and CLI tools.
-        </p>
-        <p>
-          When I'm not writing code or experimenting with new technologies, you can find me reading about systems design, writing essays on productivity and technology, or exploring new cities and architecture.
-        </p>
+    <div class="container">
+      <div class="grid-2" style="align-items:center;">
+        <div class="reveal" style="display:flex; justify-content:center;">
+          <div class="portrait-wrapper" style="max-width:360px;">
+            <img 
+              src="assets/img/lorenzo.jpg" 
+              alt="Lorenzo Airoldi"
+              class="portrait-image"
+              width="360"
+              height="450"
+            >
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1" style="display:flex; flex-direction:column; gap:1.25rem; font-size:1.02rem; line-height:1.75; color:var(--text-secondary);">
+          <div class="text-eyebrow">The Story</div>
+          <h2 class="heading-2" style="color:var(--text-primary);">
+            Hey there, I'm Lorenzo.
+          </h2>
+          <p>
+            I'm a software developer and creator based in Italy. I have a deep passion for building polished digital experiences, exploring distributed systems, and turning complex ideas into clean, usable code.
+          </p>
+          <p>
+            My journey in programming started from a desire to create and understand how things work under the hood. Over the years, I've worked across the full stack—from designing intuitive UI interfaces and themeable design systems to architecting high-performance backend microservices and CLI tools.
+          </p>
+          <p>
+            When I'm not writing code or experimenting with new technologies, you can find me reading about systems design, writing essays on productivity and technology, or exploring new cities and architecture.
+          </p>
+          <div style="margin-top:0.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="blog.html" class="btn btn-primary">Read my blog</a>
+            <a href="contact.html" class="btn btn-secondary">Get in touch</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -273,9 +295,9 @@
 
       <div class="footer-nav">
         <a href="index.html" class="footer-link">Home</a>
+        <a href="blog.html" class="footer-link">Blog</a>
         <a href="about.html" class="footer-link">About me</a>
-        <a href="posts.html" class="footer-link">Posts</a>
-        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="contact.html" class="footer-link">Get in touch</a>
       </div>
 
       <div class="footer-socials">

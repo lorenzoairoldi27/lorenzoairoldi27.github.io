@@ -1,6 +1,6 @@
 /**
  * LORENZO AIROLDI | PERSONAL WEBSITE
- * Theme Switcher, Mobile Navigation, Post Filtering & Form Handling
+ * Theme Switcher, Mobile Navigation, Blog Filtering & Form Handling
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileMenu();
   initScrollReveal();
-  initPostFilters();
+  initBlogFilters();
   initContactForm();
 });
 
@@ -112,13 +112,13 @@ function initScrollReveal() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Posts Category Filtering & Live Search
+   5. Blog Category Filtering & Live Search (Bug-Free)
    -------------------------------------------------------------------------- */
-function initPostFilters() {
+function initBlogFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const searchInput = document.querySelector('#post-search-input');
-  const postCards = document.querySelectorAll('.post-item');
-  const emptyState = document.querySelector('#post-empty-state');
+  const searchInput = document.querySelector('#blog-search-input') || document.querySelector('#post-search-input');
+  const blogCards = document.querySelectorAll('.blog-item, .post-item');
+  const emptyState = document.querySelector('#blog-empty-state') || document.querySelector('#post-empty-state');
 
   if (!filterButtons.length && !searchInput) return;
 
@@ -128,12 +128,15 @@ function initPostFilters() {
   function filterPosts() {
     let visibleCount = 0;
 
-    postCards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category') || '';
-      const title = (card.querySelector('.post-title')?.textContent || '').toLowerCase();
-      const excerpt = (card.querySelector('.post-excerpt')?.textContent || '').toLowerCase();
+    blogCards.forEach(card => {
+      const cardCategory = (card.getAttribute('data-category') || '').trim().toLowerCase();
+      const titleElement = card.querySelector('.blog-title, .post-title');
+      const excerptElement = card.querySelector('.blog-excerpt, .post-excerpt');
 
-      const matchesCategory = currentCategory === 'all' || cardCategory.toLowerCase() === currentCategory.toLowerCase();
+      const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+      const excerpt = excerptElement ? excerptElement.textContent.toLowerCase() : '';
+
+      const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory.toLowerCase();
       const matchesSearch = !searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery);
 
       if (matchesCategory && matchesSearch) {
@@ -150,10 +153,11 @@ function initPostFilters() {
   }
 
   filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      currentCategory = btn.getAttribute('data-filter') || 'all';
+      currentCategory = (btn.getAttribute('data-filter') || 'all').trim();
       filterPosts();
     });
   });
@@ -196,13 +200,13 @@ function initContactForm() {
         submitBtn.innerHTML = originalText;
       }
       form.reset();
-      showToast('Message sent! Thanks for reaching out — I will get back to you shortly.');
+      showToast('Message sent! Thanks for reaching out — I will get back to you soon.');
     }, 900);
   });
 }
 
 /* --------------------------------------------------------------------------
-   7. Toast Notification
+   7. Toast Notification Utility
    -------------------------------------------------------------------------- */
 function showToast(message) {
   let toast = document.querySelector('.toast-notification');
