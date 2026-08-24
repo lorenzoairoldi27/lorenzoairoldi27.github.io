@@ -1,1415 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorenzo Airoldi | Personal Website & Portfolio</title>
-    <meta name="description" content="Personal website and portfolio of Lorenzo Airoldi - Software developer, engineer, and creator.">
-    <meta name="author" content="Lorenzo Airoldi">
-
-    <!-- Open Graph / Meta -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Lorenzo Airoldi | Personal Website & Portfolio">
-    <meta property="og:description" content="Personal website and portfolio of Lorenzo Airoldi.">
-    <meta property="og:url" content="https://lorenzoairoldi27.github.io/">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Roboto+Slab:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <style>
-        /* ==========================================================================
-           Hydejack Theme CSS Variables & Design System
-           ========================================================================== */
-        :root {
-            --font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --font-family-heading: 'Roboto Slab', Georgia, serif;
-            --code-font-family: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-
-            --root-font-size: 16px;
-            --root-line-height: 1.75;
-            --sidebar-width: 21rem;
-
-            /* Accent & Theme Palette */
-            --accent-color: #4fb1ba;
-            --accent-color-faded: rgba(79, 177, 186, 0.45);
-            --accent-color-highlight: rgba(79, 177, 186, 0.12);
-            --accent-color-darkened: #36939b;
-            --theme-color: #193747;
-            --sidebar-bg-gradient: linear-gradient(145deg, #193747 0%, #10232e 100%);
-        }
-
-        /* Light Mode Defaults */
-        body, body.light-mode {
-            --body-color: #333333;
-            --body-bg: #ffffff;
-            --border-color: #ebebeb;
-            --border-color-dark: #dedede;
-            --gray: #777777;
-            --gray-bg: rgba(0, 0, 0, 0.035);
-            --gray-text: #666666;
-            --menu-text: #999999;
-            --card-bg: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
-            --code-bg: #f8f9fa;
-            --code-border: #e9ecef;
-            --pill-bg: #edf2f7;
-            --pill-text: #2d3748;
-        }
-
-        /* Dark Mode */
-        body.dark-mode {
-            --body-color: #d1d5db;
-            --body-bg: #161e23;
-            --border-color: #243038;
-            --border-color-dark: #2f3e48;
-            --gray: #9ca3af;
-            --gray-bg: rgba(255, 255, 255, 0.04);
-            --gray-text: #a0aec0;
-            --menu-text: #6b7280;
-            --card-bg: #1c272d;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-            --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.5);
-            --code-bg: #11171a;
-            --code-border: #243038;
-            --pill-bg: #243038;
-            --pill-text: #e2e8f0;
-        }
-
-        /* Base Reset & Typography */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-family: var(--font-family);
-            font-size: var(--root-font-size);
-            line-height: var(--root-line-height);
-            scroll-behavior: smooth;
-        }
-
-        body {
-            color: var(--body-color);
-            background-color: var(--body-bg);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6, .heading {
-            font-family: var(--font-family-heading);
-            font-weight: 700;
-            color: var(--body-color);
-            line-height: 1.3;
-        }
-
-        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-            color: #f3f4f6;
-        }
-
-        h1 { font-size: 2.2rem; margin: 2rem 0 1rem; }
-        h2 { font-size: 1.6rem; margin: 3.5rem 0 1rem; }
-        h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
-        h4 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 1.25rem;
-        }
-
-        a {
-            color: var(--body-color);
-            text-decoration: underline;
-            text-decoration-color: var(--accent-color-faded);
-            text-underline-offset: 0.3rem;
-            text-decoration-thickness: 2px;
-            transition: all 0.2s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-            text-decoration-color: var(--accent-color);
-        }
-
-        a.no-hover {
-            text-decoration: none;
-        }
-
-        .lead {
-            font-size: 1.18rem;
-            line-height: 1.8;
-            color: var(--gray-text);
-            margin-bottom: 1.75rem;
-        }
-
-        hr, .hr {
-            border: 0;
-            border-top: 1px solid var(--border-color);
-            margin: 1.5rem 0 2.5rem 0;
-        }
-
-        .pb0 { padding-bottom: 0; }
-        .mt1 { margin-top: 1rem; }
-        .mt2 { margin-top: 2rem; }
-        .mb2 { margin-bottom: 2rem; }
-        .mb4 { margin-bottom: 4rem; }
-
-        /* ==========================================================================
-           Sidebar / Navigation Drawer (Hydejack Style)
-           ========================================================================== */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: var(--sidebar-width);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.85);
-            background: var(--theme-color);
-            background: var(--sidebar-bg-gradient);
-            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .sidebar-bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle at 50% 20%, rgba(79, 177, 186, 0.15), transparent 70%);
-            pointer-events: none;
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            z-index: 2;
-            padding: 2.5rem 1.5rem;
-            width: 100%;
-            max-width: 20rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Avatar */
-        .avatar-wrap {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin-bottom: 1.25rem;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            background-color: #244356;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar-wrap:hover .avatar {
-            transform: scale(1.04);
-            border-color: var(--accent-color);
-        }
-
-        .avatar-svg {
-            width: 60%;
-            height: 60%;
-            fill: #ffffff;
-        }
-
-        /* Sidebar Title & Underline */
-        .sidebar-title {
-            text-decoration: none;
-            color: #ffffff;
-            display: block;
-        }
-
-        .sidebar-title h2 {
-            margin: 0;
-            font-size: 1.55rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: #ffffff;
-        }
-
-        .sidebar-title::after {
-            content: "";
-            display: block;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.25);
-            margin: 0.6rem auto 0.75rem;
-            width: 3.5rem;
-            transition: width 0.25s ease, border-color 0.25s ease;
-        }
-
-        .sidebar-title:hover::after {
-            width: 5rem;
-            border-color: var(--accent-color);
-        }
-
-        .sidebar-tagline {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1.75rem;
-            line-height: 1.4;
-        }
-
-        /* Navigation List */
-        .sidebar-nav {
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .sidebar-nav-item {
-            display: block;
-            padding: 0.45rem 1rem;
-            color: rgba(255, 255, 255, 0.82);
-            text-decoration: none;
-            font-family: var(--font-family-heading);
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .sidebar-nav-item:hover, .sidebar-nav-item.active {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(4px);
-        }
-
-        .sidebar-nav-item.active {
-            color: var(--accent-color);
-            background: rgba(79, 177, 186, 0.15);
-        }
-
-        /* Social Icons */
-        .sidebar-social {
-            margin-top: 0.5rem;
-        }
-
-        .sidebar-social ul {
-            display: flex;
-            list-style: none;
-            gap: 0.6rem;
-            padding: 0;
-        }
-
-        .sidebar-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.4rem;
-            height: 2.4rem;
-            border-radius: 50%;
-            color: rgba(255, 255, 255, 0.75);
-            background: rgba(255, 255, 255, 0.08);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .sidebar-social a:hover {
-            color: #ffffff;
-            background: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        }
-
-        .sidebar-social svg {
-            width: 1.15rem;
-            height: 1.15rem;
-            fill: currentColor;
-        }
-
-        /* ==========================================================================
-           Mobile Navbar & Drawer Toggle
-           ========================================================================== */
-        .navbar {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3.75rem;
-            background-color: var(--body-bg);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 90;
-            padding: 0 1.25rem;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-btn {
-            background: none;
-            border: none;
-            color: var(--body-color);
-            cursor: pointer;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-        }
-
-        .nav-btn svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            fill: currentColor;
-        }
-
-        .nav-brand {
-            font-family: var(--font-family-heading);
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--body-color);
-            text-decoration: none;
-        }
-
-        .theme-toggle-btn {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--body-color);
-            cursor: pointer;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background: var(--accent-color-highlight);
-        }
-
-        .theme-toggle-btn svg {
-            width: 1.15rem;
-            height: 1.15rem;
-            fill: currentColor;
-        }
-
-        /* Drawer Overlay */
-        .drawer-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(2px);
-            z-index: 95;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .drawer-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* ==========================================================================
-           Main Content Layout
-           ========================================================================== */
-        .content {
-            margin-left: var(--sidebar-width);
-            max-width: 52rem;
-            padding: 5rem 3rem 8rem;
-            position: relative;
-        }
-
-        .content-header {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-
-        .page-title {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.75rem;
-            letter-spacing: -0.02em;
-        }
-
-        .floating-theme-switch {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            z-index: 80;
-        }
-
-        /* ==========================================================================
-           Hydejack Signature Elements: Notes, Cards & Badges
-           ========================================================================== */
-        /* Hydejack Callout Note */
-        .note {
-            position: relative;
-            background-color: var(--gray-bg);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.25rem 1.5rem;
-            margin: 1.75rem 0;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.98rem;
-            color: var(--body-color);
-        }
-
-        .note::before {
-            content: attr(data-title);
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--accent-color-darkened);
-            margin-bottom: 0.4rem;
-        }
-
-        body.dark-mode .note::before {
-            color: var(--accent-color);
-        }
-
-        .note p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Project Cards Grid */
-        .columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.75rem;
-            margin: 2rem 0;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--accent-color-faded);
-        }
-
-        .project-card-img {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background: linear-gradient(135deg, #203a43, #2c5364);
-            overflow: hidden;
-        }
-
-        .project-card-img .project-thumb-art {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-family: var(--font-family-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #193747 0%, #2b5876 100%);
-        }
-
-        .project-card-body {
-            padding: 1.25rem 1.25rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-card-title {
-            font-size: 1.2rem;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .project-card-title a {
-            text-decoration: none;
-            color: var(--body-color);
-        }
-
-        .project-card-title a:hover {
-            color: var(--accent-color);
-        }
-
-        .project-card-text {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag-pill {
-            font-size: 0.75rem;
-            font-family: var(--code-font-family);
-            background-color: var(--pill-bg);
-            color: var(--pill-text);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Timeline / Resume Section */
-        .timeline {
-            position: relative;
-            padding-left: 1.75rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0.5rem;
-            bottom: 0.5rem;
-            left: 0.35rem;
-            width: 2px;
-            background-color: var(--border-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.25rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: -1.75rem;
-            top: 0.35rem;
-            width: 0.85rem;
-            height: 0.85rem;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            border: 3px solid var(--body-bg);
-            box-shadow: 0 0 0 2px var(--accent-color-faded);
-        }
-
-        .timeline-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-role {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--body-color);
-            margin: 0;
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            font-family: var(--code-font-family);
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .timeline-company {
-            font-size: 0.98rem;
-            color: var(--accent-color-darkened);
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-        }
-
-        body.dark-mode .timeline-company {
-            color: var(--accent-color);
-        }
-
-        .timeline-desc {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            line-height: 1.65;
-        }
-
-        .timeline-desc ul {
-            padding-left: 1.25rem;
-            margin-top: 0.5rem;
-        }
-
-        .timeline-desc li {
-            margin-bottom: 0.35rem;
-        }
-
-        /* Skills Grid */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .skill-group {
-            background-color: var(--gray-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-        }
-
-        .skill-group h4 {
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            color: var(--body-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.4rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .skill-badge {
-            font-size: 0.82rem;
-            padding: 0.25rem 0.65rem;
-            border-radius: 5px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--body-color);
-            font-weight: 500;
-        }
-
-        /* Blog / Writing Section */
-        .post-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-
-        .post-item {
-            padding: 1.25rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .post-item:first-child {
-            padding-top: 0;
-        }
-
-        .post-date {
-            font-size: 0.85rem;
-            font-family: var(--code-font-family);
-            color: var(--gray);
-            margin-bottom: 0.35rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .post-title {
-            font-size: 1.2rem;
-            margin: 0 0 0.4rem 0;
-        }
-
-        .post-excerpt {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* Hydejack Code Box */
-        .code-block {
-            background-color: var(--code-bg);
-            border: 1px solid var(--code-border);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 1.75rem 0;
-            font-family: var(--code-font-family);
-            box-shadow: var(--card-shadow);
-        }
-
-        .code-header {
-            background-color: var(--gray-bg);
-            border-bottom: 1px solid var(--code-border);
-            padding: 0.45rem 1rem;
-            font-size: 0.78rem;
-            color: var(--gray-text);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .code-header-dots {
-            display: flex;
-            gap: 5px;
-        }
-
-        .code-header-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background-color: var(--border-color-dark);
-        }
-
-        .code-content {
-            padding: 1.25rem;
-            overflow-x: auto;
-            font-size: 0.88rem;
-            line-height: 1.65;
-            color: var(--body-color);
-        }
-
-        .code-content pre {
-            margin: 0;
-            font-family: inherit;
-        }
-
-        .code-kw { color: #d73a49; }
-        .code-str { color: #032f62; }
-        .code-fn { color: #6f42c1; }
-        .code-cm { color: #6a737d; font-style: italic; }
-
-        body.dark-mode .code-kw { color: #ff7b72; }
-        body.dark-mode .code-str { color: #a5d6ff; }
-        body.dark-mode .code-fn { color: #d2a8ff; }
-        body.dark-mode .code-cm { color: #8b949e; }
-
-        /* Buttons & Actions */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.65rem 1.25rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            font-family: var(--font-family);
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-color-darkened);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(79, 177, 186, 0.35);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--border-color-dark);
-            color: var(--body-color);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background-color: var(--accent-color-highlight);
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
-
-        /* Footer */
-        .site-footer {
-            margin-top: 5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.88rem;
-            color: var(--gray);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .back-to-top {
-            font-size: 0.85rem;
-            text-decoration: none;
-            color: var(--gray);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .back-to-top:hover {
-            color: var(--accent-color);
-        }
-
-        /* ==========================================================================
-           Responsive Media Queries
-           ========================================================================== */
-        @media (max-width: 64em) {
-            .navbar {
-                display: flex;
-            }
-
-            .sidebar {
-                transform: translateX(-100%);
-                width: 18.5rem;
-                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.4);
-            }
-
-            .sidebar.opened {
-                transform: translateX(0);
-            }
-
-            .content {
-                margin-left: 0;
-                padding: 5.5rem 1.5rem 6rem;
-                max-width: 100%;
-            }
-
-            .page-title {
-                font-size: 2.1rem;
-            }
-
-            .floating-theme-switch {
-                display: none;
-            }
-        }
-
-        @media (min-width: 64.01em) and (max-width: 86em) {
-            .content {
-                padding: 6rem 2.5rem 8rem;
-            }
-        }
-
-        @media (min-width: 86.01em) {
-            .content {
-                padding: 7rem 4rem 10rem;
-                max-width: 56rem;
-            }
-        }
-
-        /* Print Stylesheet for Resume */
-        @media print {
-            .sidebar, .navbar, .drawer-overlay, .floating-theme-switch, .btn-group, .site-footer, .project-links {
-                display: none !important;
-            }
-            .content {
-                margin-left: 0 !important;
-                padding: 0 !important;
-                max-width: 100% !important;
-            }
-            body {
-                background: #ffffff !important;
-                color: #000000 !important;
-            }
-            a {
-                text-decoration: none !important;
-                color: #000000 !important;
-            }
-            .project-card, .skill-group, .note {
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorenzo Airoldi | Modern Real Estate Consultant & Strategic Advisor</title>
+  <meta name="description" content="High-end real estate advisory, strategic property acquisition, and quantitative market insights for modern homeowners and investors.">
+  <meta name="author" content="Lorenzo Airoldi">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lorenzo Airoldi | Modern Real Estate Consultant">
+  <meta property="og:description" content="Strategic property acquisition, bespoke market analysis, and high-touch real estate advisory.">
+  <meta property="og:url" content="https://lorenzoairoldi27.github.io/">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Mobile Top Navigation Bar -->
-    <header class="navbar" id="mobile-navbar">
-        <button class="nav-btn" id="drawer-toggle-btn" aria-label="Open Navigation Menu">
-            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-        </button>
-        <a href="#about" class="nav-brand">Lorenzo Airoldi</a>
-        <button class="theme-toggle-btn" id="mobile-theme-toggle" aria-label="Toggle Dark Mode">
-            <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36l-1.06 1.06a.996.996 0 000 1.41c.39.39 1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.02-.39-1.41 0z"/></svg>
-        </button>
-    </header>
+  <!-- =========================================================================
+       Navigation Header
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
+        <div class="brand-monogram">LA</div>
+        <div class="brand-text">
+          <span class="brand-name">Lorenzo Airoldi</span>
+          <span class="brand-title">Real Estate Advisory</span>
+        </div>
+      </a>
 
-    <!-- Mobile Drawer Overlay -->
-    <div class="drawer-overlay" id="drawer-overlay"></div>
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="blog.html" class="nav-link">Market Insights</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary">
+          Get in Touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </nav>
 
-    <!-- Desktop Floating Theme Toggle -->
-    <div class="floating-theme-switch">
-        <button class="theme-toggle-btn" id="desktop-theme-toggle" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
-            <svg class="theme-icon" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
-        </button>
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" aria-label="Open mobile menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop & Drawer -->
+  <div class="mobile-backdrop"></div>
+  <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-monogram">LA</div>
+        <div class="brand-text">
+          <span class="brand-name">Lorenzo Airoldi</span>
+          <span class="brand-title">Real Estate Advisory</span>
+        </div>
+      </div>
+      <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
 
-    <!-- Hydejack Sidebar / Drawer -->
-    <aside class="sidebar" id="sidebar" role="banner">
-        <div class="sidebar-bg-overlay"></div>
-        <div class="sidebar-sticky">
-            <div class="avatar-wrap">
-                <div class="avatar">
-                    <svg class="avatar-svg" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                </div>
-            </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Me</a>
+      <a href="blog.html" class="mobile-nav-link">Market Insights</a>
+      <a href="contact.html" class="mobile-nav-link">Contact & Booking</a>
+    </nav>
 
-            <a class="sidebar-title" href="#about">
-                <h2>Lorenzo Airoldi</h2>
+    <div class="mobile-menu-footer">
+      <a href="contact.html" class="btn btn-primary" style="width:100%;">Schedule a Consultation</a>
+      <div style="font-size:0.85rem; color:var(--color-slate-500); text-align:center;">
+        Milano, Italy • contact@lorenzoairoldi.com
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="hero-home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="text-eyebrow">Contemporary Real Estate Advisory</div>
+          <h1 class="heading-display">
+            Strategic property consulting for the modern era.
+          </h1>
+          <p class="text-lead">
+            Combining quantitative market intelligence, architectural appreciation, and bespoke representation to guide clients through prime residential acquisitions and investments.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">
+              Work With Me
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </a>
-            <p class="sidebar-tagline">Software Developer & Tech Enthusiast</p>
-
-            <nav class="sidebar-nav" role="navigation">
-                <ul>
-                    <li><a href="#about" class="sidebar-nav-item active">About</a></li>
-                    <li><a href="#projects" class="sidebar-nav-item">Projects</a></li>
-                    <li><a href="#experience" class="sidebar-nav-item">Experience</a></li>
-                    <li><a href="#skills" class="sidebar-nav-item">Skills</a></li>
-                    <li><a href="#blog" class="sidebar-nav-item">Articles</a></li>
-                    <li><a href="#contact" class="sidebar-nav-item">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-social">
-                <ul>
-                    <li>
-                        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" title="GitHub">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.91 0-1.64.73-1.64 1.64s.73 1.64 1.64 1.64 1.64-.73 1.64-1.64-.73-1.64-1.64-1.64z"/></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:lorenzo.airoldi@example.com" title="Email">
-                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <a href="blog.html" class="btn btn-secondary">
+              Read Market Insights
+            </a>
+          </div>
         </div>
-    </aside>
 
-    <!-- Main Content Area -->
-    <main class="content" role="main">
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="hero-image-wrapper">
+            <img 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Modern luxury architectural residence"
+              loading="eager"
+            >
+          </div>
+          <div class="hero-floating-badge">
+            <div class="floating-badge-value">€45M+</div>
+            <div class="floating-badge-label">Curated Transactions & Advisory Volume Across Prime Markets</div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Header / Introduction -->
-        <article class="page" id="about">
-            <header class="content-header">
-                <h1 class="page-title">Hi, I'm Lorenzo 👋</h1>
-                <div class="hr pb0"></div>
-            </header>
+      <!-- Stats Bar -->
+      <div class="stats-bar reveal reveal-delay-3">
+        <div class="stat-item">
+          <div class="stat-number">€45M+</div>
+          <div class="stat-label">Advisory & Transaction Volume</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">99%</div>
+          <div class="stat-label">Client Retention & Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Fiduciary & Independent Advice</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Milan & EU</div>
+          <div class="stat-label">Key Metropolitan Coverage</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <p class="lead">
-                Welcome to my personal home on the web. I'm a developer passionate about building elegant software, distributed systems, and creative web solutions.
-            </p>
+  <!-- =========================================================================
+       Value Proposition & Core Services Overview
+       ========================================================================= -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-heading-wrapper text-center reveal">
+        <div class="text-eyebrow">Tailored Services</div>
+        <h2 class="heading-1" style="margin-top:0.75rem; margin-bottom:1rem;">
+          Precision Advisory at Every Stage
+        </h2>
+        <p class="text-lead" style="max-width:620px; margin:0 auto;">
+          Whether acquiring a primary architectural sanctuary or structuring a high-yield residential portfolio, my advisory model is built around data, discretion, and diligence.
+        </p>
+      </div>
 
-            <div class="note" data-title="Highlights">
-                <p>
-                    I specialize in full-stack web development, clean software architecture, and modern developer tooling. Currently exploring new open source projects and systems engineering.
-                </p>
+      <div class="grid-4" style="margin-top:3.5rem;">
+        <!-- Service Card 1 -->
+        <div class="service-card reveal reveal-delay-1">
+          <div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
             </div>
-
-            <p>
-                This space is where I showcase my latest projects, share technical notes and writings, and keep an up-to-date summary of my experience and technical skill set.
+            <h3 class="service-title">Bespoke Property Selection</h3>
+            <p class="service-desc">
+              Curated off-market sourcing, rigorous structural and architectural vetting, and exclusive private viewings tailored to your exact lifestyle criteria.
             </p>
-
-            <div class="btn-group">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#experience" class="btn btn-outline">Check Résumé</a>
-                <a href="mailto:lorenzo.airoldi@example.com" class="btn btn-outline">Get in Touch</a>
+          </div>
+          <div class="service-features">
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Off-market property access</span>
             </div>
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Architectural potential audit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card reveal reveal-delay-2">
+          <div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Market Intelligence & Analytics</h3>
+            <p class="service-desc">
+              Data-backed micro-neighborhood evaluations, historical price trend modeling, and risk-adjusted yield projections before you commit capital.
+            </p>
+          </div>
+          <div class="service-features">
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Comparative pricing models</span>
+            </div>
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Long-term liquidity analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card reveal reveal-delay-3">
+          <div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Acquisition & Negotiation</h3>
+            <p class="service-desc">
+              Strategic representation designed to protect your interests, negotiate optimal terms, and navigate complex legal and contractual frameworks.
+            </p>
+          </div>
+          <div class="service-features">
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Strict fiduciary advocacy</span>
+            </div>
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Contract & due diligence review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-card reveal reveal-delay-4">
+          <div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="service-title">Relocation & Concierge</h3>
+            <p class="service-desc">
+              End-to-end relocation management for international professionals, families, and remote founders establishing roots in Northern Italy.
+            </p>
+          </div>
+          <div class="service-features">
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Tax & residency advisor network</span>
+            </div>
+            <div class="service-feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Interior & renovation coordination</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Editorial Split / The Contemporary Approach
+       ========================================================================= -->
+  <section class="section section-warm">
+    <div class="container">
+      <div class="bio-split">
+        <div class="reveal">
+          <div class="bio-portrait-container">
+            <div class="bio-portrait">
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" 
+                alt="Lorenzo Airoldi - Real Estate Consultant"
+              >
+            </div>
+            <div class="bio-portrait-frame"></div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="text-eyebrow">The Philosophy</div>
+          <h2 class="heading-1" style="margin-top:0.75rem; margin-bottom:1.5rem;">
+            Replacing traditional sales pitches with analytical clarity.
+          </h2>
+          <p class="text-lead" style="margin-bottom:1.25rem;">
+            The contemporary real estate landscape requires more than just glossy brochures. Today’s buyers and investors require sharp quantitative modeling, deep local insight, and an advisor who sits on their side of the table.
+          </p>
+          <p style="color:var(--color-slate-600); margin-bottom:2rem; line-height:1.7;">
+            By merging background in economic analysis with an uncompromising eye for architecture, I offer a streamlined advisory model. Every recommendation is underpinned by real data, zoning verification, and long-term liquidity assessments.
+          </p>
+          <div style="display:flex; align-items:center; gap:1.5rem;">
+            <a href="about.html" class="btn btn-dark">
+              Learn More About My Method
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Featured Market Insights (Teaser Grid)
+       ========================================================================= -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div class="text-eyebrow">Market Insights</div>
+          <h2 class="heading-1" style="margin-top:0.5rem;">Quarterly Intelligence & Guides</h2>
+        </div>
+        <a href="blog.html" class="btn-link">
+          Explore all articles
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid-3">
+        <!-- Article 1 -->
+        <article class="insight-card reveal reveal-delay-1">
+          <div class="insight-media">
+            <span class="badge badge-bronze insight-category-badge">Market Trends</span>
+            <img 
+              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" 
+              alt="Milan skyline and modern architectural buildings"
+            >
+          </div>
+          <div class="insight-content">
+            <div>
+              <div class="insight-meta">
+                <span>August 2026</span>
+                <span class="insight-meta-dot"></span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="insight-title">
+                <a href="article.html">Navigating Prime Real Estate in 2026: Interest Rates & Urban Migration</a>
+              </h3>
+              <p class="insight-excerpt">
+                An analysis of how shifted central bank policies and evolving luxury demands are reshaping key European metropolitan sub-markets.
+              </p>
+            </div>
+            <div class="insight-footer">
+              <span class="badge badge-slate">Market Report</span>
+              <a href="article.html" class="btn-link">
+                Read Analysis
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
         </article>
 
-        <!-- Projects Showcase Section -->
-        <section id="projects" class="mb4">
-            <h2>Featured Projects</h2>
-            <p class="lead">A selection of things I've built and contributed to.</p>
-
-            <div class="columns">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-card-img">
-                        <div class="project-thumb-art">
-                            <span>🚀 Web App Platform</span>
-                        </div>
-                    </div>
-                    <div class="project-card-body">
-                        <h3 class="project-card-title">
-                            <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer">Full-Stack Cloud Dashboard</a>
-                        </h3>
-                        <p class="project-card-text">
-                            A modern analytics dashboard featuring real-time data visualization, REST API integration, and responsive user interfaces.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag-pill">TypeScript</span>
-                            <span class="tag-pill">React</span>
-                            <span class="tag-pill">Node.js</span>
-                            <span class="tag-pill">Tailwind</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer">Source Code →</a>
-                            <a href="#projects">Live Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-card-img">
-                        <div class="project-thumb-art" style="background: linear-gradient(135deg, #1f4037, #99f2c8);">
-                            <span style="color: #10232e;">⚡ CLI & Automation</span>
-                        </div>
-                    </div>
-                    <div class="project-card-body">
-                        <h3 class="project-card-title">
-                            <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer">DevTools CLI Suite</a>
-                        </h3>
-                        <p class="project-card-text">
-                            A lightweight command-line utility built for automating developer workflows, scaffolding repositories, and managing local environment configs.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag-pill">Python</span>
-                            <span class="tag-pill">CLI</span>
-                            <span class="tag-pill">Docker</span>
-                            <span class="tag-pill">CI/CD</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer">Source Code →</a>
-                            <a href="#projects">Docs →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience / Resume Section -->
-        <section id="experience" class="mb4">
-            <h2>Experience & Education</h2>
-            <p class="lead">My professional trajectory and academic background.</p>
-
-            <div class="timeline">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-header">
-                        <h3 class="timeline-role">Software Developer</h3>
-                        <span class="timeline-date">2024 — Present</span>
-                    </div>
-                    <div class="timeline-company">Tech Solutions & Innovation</div>
-                    <div class="timeline-desc">
-                        <ul>
-                            <li>Designed and implemented scalable backend services and responsive client web applications.</li>
-                            <li>Collaborated with cross-functional teams to improve performance and code quality across microservices.</li>
-                            <li>Integrated automated CI/CD deployment pipelines using GitHub Actions and containerization.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-header">
-                        <h3 class="timeline-role">B.Sc. in Computer Science</h3>
-                        <span class="timeline-date">2020 — 2024</span>
-                    </div>
-                    <div class="timeline-company">University / Institute</div>
-                    <div class="timeline-desc">
-                        <p>Focused on algorithms, distributed computing, database systems, and software engineering principles. Completed capstone thesis on modern web architectures.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-outline" onclick="window.print()">
-                    <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-                    Print / Save Résumé (PDF)
-                </button>
-            </div>
-        </section>
-
-        <!-- Technical Skills Section -->
-        <section id="skills" class="mb4">
-            <h2>Technical Skills</h2>
-            <p class="lead">Technologies, tools, and methodologies I work with.</p>
-
-            <div class="skills-container">
-                <div class="skill-group">
-                    <h4>Languages</h4>
-                    <div class="skill-list">
-                        <span class="skill-badge">JavaScript</span>
-                        <span class="skill-badge">TypeScript</span>
-                        <span class="skill-badge">Python</span>
-                        <span class="skill-badge">HTML5 / CSS3</span>
-                        <span class="skill-badge">SQL</span>
-                        <span class="skill-badge">C / C++</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Frameworks & Libraries</h4>
-                    <div class="skill-list">
-                        <span class="skill-badge">React</span>
-                        <span class="skill-badge">Node.js</span>
-                        <span class="skill-badge">Express</span>
-                        <span class="skill-badge">Next.js</span>
-                        <span class="skill-badge">Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Tools & DevOps</h4>
-                    <div class="skill-list">
-                        <span class="skill-badge">Git & GitHub</span>
-                        <span class="skill-badge">Docker</span>
-                        <span class="skill-badge">Linux / Bash</span>
-                        <span class="skill-badge">CI / CD</span>
-                        <span class="skill-badge">VS Code</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Code Block Showcase (Hydejack Signature) -->
-        <section class="mb4">
-            <h2>Clean Code & Architecture</h2>
-            <p>Here is an example snippet demonstrating modern JavaScript asynchronous flow:</p>
-
-            <div class="code-block">
-                <div class="code-header">
-                    <span>fetchData.ts</span>
-                    <div class="code-header-dots">
-                        <div class="code-header-dot"></div>
-                        <div class="code-header-dot"></div>
-                        <div class="code-header-dot"></div>
-                    </div>
-                </div>
-                <div class="code-content">
-                    <pre><code><span class="code-cm">// Asynchronous service request handler</span>
-<span class="code-kw">export async function</span> <span class="code-fn">getUserProfile</span>(userId: <span class="code-str">string</span>) {
-  <span class="code-kw">try</span> {
-    <span class="code-kw">const</span> response = <span class="code-kw">await</span> <span class="code-fn">fetch</span>(<span class="code-str">`/api/users/${userId}`</span>);
-    <span class="code-kw">if</span> (!response.ok) <span class="code-kw">throw new Error</span>(<span class="code-str">"Failed to load user"</span>);
-    <span class="code-kw">return await</span> response.<span class="code-fn">json</span>();
-  } <span class="code-kw">catch</span> (err) {
-    console.<span class="code-fn">error</span>(<span class="code-str">"Error retrieving profile:"</span>, err);
-  }
-}</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog / Writing Section -->
-        <section id="blog" class="mb4">
-            <h2>Recent Articles</h2>
-            <p class="lead">Thoughts, tutorials, and insights on development.</p>
-
-            <ul class="post-list">
-                <li class="post-item">
-                    <div class="post-date">
-                        <span>August 2026</span> • <span>4 min read</span>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="#blog">Building Lightweight & Responsive Portfolios with Semantic HTML</a>
-                    </h3>
-                    <p class="post-excerpt">
-                        How focusing on clean HTML5 structure and modern CSS variables yields blistering fast performance and exceptional mobile accessibility.
-                    </p>
-                </li>
-
-                <li class="post-item">
-                    <div class="post-date">
-                        <span>May 2026</span> • <span>6 min read</span>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="#blog">Effective CI/CD Pipeline Practices with GitHub Actions</a>
-                    </h3>
-                    <p class="post-excerpt">
-                        A walkthrough on structuring modular GitHub workflows for automated testing, container builds, and static site deployment.
-                    </p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="mb4">
-            <h2>Get in Touch</h2>
-            <p class="lead">Interested in collaborating or have a question? Feel free to reach out!</p>
-
-            <div class="note" data-title="Contact Details">
-                <p>
-                    I'm always open to discussing new opportunities, open-source projects, or tech topics.
-                </p>
-                <p class="mt1">
-                    <strong>Email:</strong> <a href="mailto:lorenzo.airoldi@example.com">lorenzo.airoldi@example.com</a><br>
-                    <strong>GitHub:</strong> <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer">@lorenzoairoldi27</a>
-                </p>
-            </div>
-
-            <div class="btn-group">
-                <a href="mailto:lorenzo.airoldi@example.com" class="btn btn-primary">Send Me an Email</a>
-                <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit GitHub Profile</a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="site-footer">
+        <!-- Article 2 -->
+        <article class="insight-card reveal reveal-delay-2">
+          <div class="insight-media">
+            <span class="badge badge-olive insight-category-badge">Buyer Guides</span>
+            <img 
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
+              alt="Minimalist modern interior living room"
+            >
+          </div>
+          <div class="insight-content">
             <div>
-                © <span id="current-year">2026</span> Lorenzo Airoldi. Built with inspiration from <a href="https://hydejack.com/" target="_blank" rel="noopener noreferrer">Hydejack</a>.
+              <div class="insight-meta">
+                <span>July 2026</span>
+                <span class="insight-meta-dot"></span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="insight-title">
+                <a href="article.html">The Essential Due Diligence Checklist for Historical Renovations</a>
+              </h3>
+              <p class="insight-excerpt">
+                Crucial steps to identify structural integrity, preservation covenants, and energy-efficiency modernization options before making an offer.
+              </p>
             </div>
-            <a href="#about" class="back-to-top">
-                Back to top ↑
+            <div class="insight-footer">
+              <span class="badge badge-slate">Advisory Guide</span>
+              <a href="article.html" class="btn-link">
+                Read Analysis
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="insight-card reveal reveal-delay-3">
+          <div class="insight-media">
+            <span class="badge badge-bronze insight-category-badge">Real Estate Tech</span>
+            <img 
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+              alt="Contemporary architectural villa"
+            >
+          </div>
+          <div class="insight-content">
+            <div>
+              <div class="insight-meta">
+                <span>June 2026</span>
+                <span class="insight-meta-dot"></span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="insight-title">
+                <a href="article.html">Smart Homes & Sustainable Architecture: What Modern Buyers Value Most</a>
+              </h3>
+              <p class="insight-excerpt">
+                Why passive-solar orientation, integrated energy storage, and discrete automation now command significant pricing premiums.
+              </p>
+            </div>
+            <div class="insight-footer">
+              <span class="badge badge-slate">Tech Brief</span>
+              <a href="article.html" class="btn-link">
+                Read Analysis
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Quick Contact Banner
+       ========================================================================= -->
+  <section class="section section-warm">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-grid">
+          <div>
+            <div class="badge badge-dark" style="margin-bottom:1rem;">Private Consultation</div>
+            <h2 class="heading-1 text-white" style="margin-bottom:1rem;">
+              Planning your next acquisition or portfolio move?
+            </h2>
+            <p class="text-white-muted" style="font-size:1.05rem; line-height:1.6;">
+              Let’s discuss your vision over a private confidential consultation. I provide clear valuations, market screening, and tailored strategic roadmaps.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary" style="padding:1rem 2.25rem; font-size:1rem;">
+              Schedule Consultation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </a>
-        </footer>
+            <span style="font-size:0.85rem; color:rgba(255,255,255,0.6);">Direct reply within 24 hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </main>
+  <!-- =========================================================================
+       Global Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Narrative -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="color:var(--color-white);">
+            <div class="brand-monogram" style="background-color:var(--color-bronze); color:var(--color-white);">LA</div>
+            <div class="brand-text">
+              <span class="brand-name text-white">Lorenzo Airoldi</span>
+              <span class="brand-title" style="color:var(--color-bronze);">Real Estate Advisory</span>
+            </div>
+          </div>
+          <p>
+            Bespoke real estate consultancy providing data-driven market intelligence, acquisition strategy, and discreet representation.
+          </p>
+        </div>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Set dynamic current year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        <!-- Navigation Links -->
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <div class="footer-nav">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Lorenzo</a>
+            <a href="blog.html" class="footer-link">Market Insights</a>
+            <a href="contact.html" class="footer-link">Private Consultation</a>
+          </div>
+        </div>
 
-        // Mobile Drawer Toggle Functionality
-        const drawerToggleBtn = document.getElementById('drawer-toggle-btn');
-        const sidebar = document.getElementById('sidebar');
-        const drawerOverlay = document.getElementById('drawer-overlay');
-        const navLinks = document.querySelectorAll('.sidebar-nav-item');
+        <!-- Areas of Practice -->
+        <div>
+          <div class="footer-heading">Advisory Services</div>
+          <div class="footer-nav">
+            <a href="about.html" class="footer-link">Prime Residential Search</a>
+            <a href="about.html" class="footer-link">Portfolio Modeling</a>
+            <a href="about.html" class="footer-link">Off-Market Acquisitions</a>
+            <a href="about.html" class="footer-link">Relocation Concierge</a>
+          </div>
+        </div>
 
-        function toggleDrawer() {
-            const isOpen = sidebar.classList.toggle('opened');
-            drawerOverlay.classList.toggle('active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
+        <!-- Direct Connect & Newsletter -->
+        <div>
+          <div class="footer-heading">Quarterly Briefing</div>
+          <p style="font-size:0.85rem; color:var(--color-slate-400); margin-bottom:1rem;">
+            Receive curated market analysis and macro property forecasts directly in your inbox.
+          </p>
+          <form class="newsletter-form" style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
+            <input 
+              type="email" 
+              placeholder="Your email address" 
+              required 
+              style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); padding:0.6rem 0.9rem; border-radius:var(--radius-sm); color:var(--color-white); font-size:0.85rem; flex:1;"
+            >
+            <button type="submit" class="btn btn-primary" style="padding:0.6rem 1rem;" aria-label="Subscribe to newsletter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
 
-        function closeDrawer() {
-            sidebar.classList.remove('opened');
-            drawerOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram Profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Direct Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-        if (drawerToggleBtn) {
-            drawerToggleBtn.addEventListener('click', toggleDrawer);
-        }
-        if (drawerOverlay) {
-            drawerOverlay.addEventListener('click', closeDrawer);
-        }
+      <div class="footer-bottom">
+        <div>© 2026 Lorenzo Airoldi Real Estate Advisory. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#" style="color:inherit;">Privacy Policy</a>
+          <a href="#" style="color:inherit;">Terms of Advisory</a>
+          <a href="#" style="color:inherit;">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        // Close mobile drawer when clicking a navigation link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 1024) {
-                    closeDrawer();
-                }
-            });
-        });
-
-        // Dark / Light Mode Theme Switching
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const desktopThemeToggle = document.getElementById('desktop-theme-toggle');
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.body.classList.add('dark-mode');
-                document.body.classList.remove('light-mode');
-            } else {
-                document.body.classList.add('light-mode');
-                document.body.classList.remove('dark-mode');
-            }
-        }
-
-        function toggleTheme() {
-            const isDark = document.body.classList.contains('dark-mode');
-            if (isDark) {
-                document.body.classList.remove('dark-mode');
-                document.body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.classList.remove('light-mode');
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        initTheme();
-
-        if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
-        if (desktopThemeToggle) desktopThemeToggle.addEventListener('click', toggleTheme);
-
-        // Active Navigation Item Tracking on Scroll
-        const sections = document.querySelectorAll('article[id], section[id]');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const scrollY = window.pageYOffset;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                const sectionHeight = section.offsetHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>
