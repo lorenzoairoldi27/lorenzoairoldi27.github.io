@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo Airoldi | Personal Website</title>
-  <meta name="description" content="Personal website of Lorenzo Airoldi. Real estate advisory, technology research, thoughts, and investments.">
+  <title>Posts & Essays | Lorenzo Airoldi</title>
+  <meta name="description" content="Essays, market notes, architectural guides, and thoughts on technology by Lorenzo Airoldi.">
   <meta name="author" content="Lorenzo Airoldi">
 
-  <!-- Instant Theme Script to prevent flash -->
+  <!-- Instant Theme Script -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -17,9 +17,9 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lorenzo Airoldi | Personal Website">
-  <meta property="og:description" content="Consultant, investor, and thinker exploring the intersection of real estate, architecture, and technology.">
-  <meta property="og:url" content="https://lorenzoairoldi27.github.io/">
+  <meta property="og:title" content="Posts & Essays | Lorenzo Airoldi">
+  <meta property="og:description" content="Thoughts on property markets, architecture, and technology.">
+  <meta property="og:url" content="https://lorenzoairoldi27.github.io/posts.html">
   <meta property="og:image" content="assets/img/logo.png">
 
   <!-- Favicon -->
@@ -51,15 +51,13 @@
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" aria-label="Primary Navigation">
         <div class="nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
+          <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About me</a>
-          <a href="posts.html" class="nav-link">Posts</a>
+          <a href="posts.html" class="nav-link active">Posts</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
 
-        <!-- Dark / Light Theme Toggle -->
         <button class="theme-toggle-btn" aria-label="Toggle dark and light mode">
-          <!-- Sun Icon (shown in dark mode to switch to light) -->
           <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -71,14 +69,13 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <!-- Moon Icon (shown in light mode to switch to dark) -->
           <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
       </nav>
 
-      <!-- Mobile Controls (Theme Toggle + Hamburger) -->
+      <!-- Mobile Controls -->
       <div style="display:flex; align-items:center; gap:0.5rem;" class="mobile-toggle">
         <button class="theme-toggle-btn" aria-label="Toggle dark and light mode" style="width:36px; height:36px;">
           <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -107,7 +104,7 @@
     </div>
   </header>
 
-  <!-- Mobile Backdrop & Drawer -->
+  <!-- Mobile Drawer -->
   <div class="mobile-backdrop"></div>
   <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
     <div class="mobile-menu-header">
@@ -124,9 +121,9 @@
     </div>
 
     <nav class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="index.html" class="mobile-nav-link">Home</a>
       <a href="about.html" class="mobile-nav-link">About me</a>
-      <a href="posts.html" class="mobile-nav-link">Posts</a>
+      <a href="posts.html" class="mobile-nav-link active">Posts</a>
       <a href="contact.html" class="mobile-nav-link">Contact</a>
     </nav>
 
@@ -139,161 +136,55 @@
   </aside>
 
   <!-- =========================================================================
-       Hero Section
+       Page Header
        ========================================================================= -->
-  <section class="hero-home">
+  <section class="page-header">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content reveal">
-          <div class="text-eyebrow">Personal Space & Perspectives</div>
-          <h1 class="heading-display">
-            Hey, I'm Lorenzo.<br>
-            Navigating property, technology & modern living.
-          </h1>
-          <p class="text-lead">
-            I'm a young consultant and investor based in Milan. I spend my time analyzing housing markets, advising private clients, exploring contemporary architecture, and writing about where the world is heading.
-          </p>
-          <div class="hero-actions">
-            <a href="about.html" class="btn btn-primary">
-              About me
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="posts.html" class="btn btn-secondary">
-              Read Posts
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal reveal-delay-2">
-          <div class="hero-portrait-wrap">
-            <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
-              alt="Lorenzo Airoldi"
-              class="hero-portrait-img"
-            >
-            <div class="hero-badge-overlay">
-              <div class="hero-badge-dot"></div>
-              <div style="font-size:0.85rem; font-weight:600; color:var(--text-primary);">
-                Available for advisory & conversations
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       What I Do & Focus Areas
-       ========================================================================= -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <div class="text-eyebrow">Focus Areas</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">What I Spend My Time On</h2>
-        </div>
-        <p class="text-lead" style="max-width:480px; margin:0;">
-          A blend of strategic real estate advisory, financial modeling, and building modern personal ventures.
+      <div class="page-header-content reveal">
+        <div class="text-eyebrow">Writing</div>
+        <h1 class="heading-1" style="margin-top:0.75rem; margin-bottom:0.75rem;">
+          Posts & Essays
+        </h1>
+        <p class="text-lead">
+          Notes on real estate markets, architectural exploration, technology trends, and personal perspectives.
         </p>
       </div>
-
-      <div class="grid-3">
-        <!-- Area 1 -->
-        <div class="card reveal reveal-delay-1">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Real Estate Advisory</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Helping private clients and investors navigate prime residential acquisitions, off-market screening, and transaction negotiations in Northern Italy.
-            </p>
-          </div>
-          <a href="about.html" class="btn-link">
-            Learn more about my approach
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
-        </div>
-
-        <!-- Area 2 -->
-        <div class="card reveal reveal-delay-2">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Market Research & Notes</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Writing quarterly macro breakdowns, analyzing neighborhood transformations, and evaluating how interest rates shape housing supply.
-            </p>
-          </div>
-          <a href="posts.html" class="btn-link">
-            Explore recent essays
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
-        </div>
-
-        <!-- Area 3 -->
-        <div class="card reveal reveal-delay-3">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </div>
-            <h3 class="heading-3" style="margin-bottom:0.75rem;">Technology & Living</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem;">
-              Passionate about sustainable architecture, proptech innovation, smart home infrastructure, and modern productivity tooling.
-            </p>
-          </div>
-          <a href="about.html" class="btn-link">
-            Read my story
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Recent Posts
+       Posts & Filter Grid
        ========================================================================= -->
   <section class="section">
     <div class="container">
-      <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <div class="text-eyebrow">Writing & Reflections</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">Recent Posts</h2>
+      <!-- Filter Bar -->
+      <div class="filter-bar reveal">
+        <div class="filter-tags">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+          <button class="filter-btn" data-filter="architecture">Architecture</button>
+          <button class="filter-btn" data-filter="technology">Technology</button>
+          <button class="filter-btn" data-filter="thoughts">Thoughts</button>
         </div>
-        <a href="posts.html" class="btn-link">
-          View all posts
+
+        <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-        </a>
+          <input type="text" id="post-search-input" placeholder="Search posts...">
+        </div>
       </div>
 
-      <div class="grid-3">
+      <!-- Posts Grid -->
+      <div class="grid-3" id="posts-grid">
         <!-- Post 1 -->
-        <article class="post-card reveal reveal-delay-1">
+        <article class="post-item post-card reveal reveal-delay-1" data-category="real-estate">
           <div class="post-media">
             <span class="badge post-category-badge">Real Estate</span>
             <img 
               src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" 
-              alt="Milan city skyline"
+              alt="Milan skyline"
             >
           </div>
           <div class="post-content">
@@ -311,21 +202,18 @@
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
 
         <!-- Post 2 -->
-        <article class="post-card reveal reveal-delay-2">
+        <article class="post-item post-card reveal reveal-delay-2" data-category="architecture">
           <div class="post-media">
             <span class="badge post-category-badge">Architecture</span>
             <img 
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-              alt="Minimalist modern interior living room"
+              alt="Minimalist modern living space"
             >
           </div>
           <div class="post-content">
@@ -343,16 +231,13 @@
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
 
         <!-- Post 3 -->
-        <article class="post-card reveal reveal-delay-3">
+        <article class="post-item post-card reveal reveal-delay-3" data-category="technology">
           <div class="post-media">
             <span class="badge post-category-badge">Technology</span>
             <img 
@@ -371,43 +256,107 @@
                 <a href="article.html">Smart Homes & Sustainable Architecture: What Modern Buyers Value Most</a>
               </h3>
               <p class="post-excerpt">
-                Why passive-solar orientation, integrated energy storage, and discrete automation now command significant premiums.
+                Why passive-solar orientation, integrated energy storage, and discrete automation command significant premiums.
               </p>
             </div>
             <div class="post-footer">
-              <a href="article.html" class="btn-link">
-                Read post
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="post-item post-card reveal reveal-delay-1" data-category="real-estate">
+          <div class="post-media">
+            <span class="badge post-category-badge">Real Estate</span>
+            <img 
+              src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" 
+              alt="Modern luxury pool residence"
+            >
+          </div>
+          <div class="post-content">
+            <div>
+              <div class="post-meta">
+                <span>May 2026</span>
+                <span class="post-meta-dot"></span>
+                <span>7 min read</span>
+              </div>
+              <h3 class="post-title">
+                <a href="article.html">Yield vs. Capital Appreciation: Structuring Residential Portfolios</a>
+              </h3>
+              <p class="post-excerpt">
+                A framework for balancing immediate cash yields against prime location longevity when allocating capital in Northern Italy.
+              </p>
+            </div>
+            <div class="post-footer">
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="post-item post-card reveal reveal-delay-2" data-category="thoughts">
+          <div class="post-media">
+            <span class="badge post-category-badge">Thoughts</span>
+            <img 
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" 
+              alt="Modern minimalist interior"
+            >
+          </div>
+          <div class="post-content">
+            <div>
+              <div class="post-meta">
+                <span>April 2026</span>
+                <span class="post-meta-dot"></span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="post-title">
+                <a href="article.html">On Building in Public & Developing Long-Term Craft</a>
+              </h3>
+              <p class="post-excerpt">
+                Why sharing research openly, staying intellectually honest, and compounding small advantages produces outsized outcomes.
+              </p>
+            </div>
+            <div class="post-footer">
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="post-item post-card reveal reveal-delay-3" data-category="architecture">
+          <div class="post-media">
+            <span class="badge post-category-badge">Architecture</span>
+            <img 
+              src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" 
+              alt="Warm minimalist apartment"
+            >
+          </div>
+          <div class="post-content">
+            <div>
+              <div class="post-meta">
+                <span>March 2026</span>
+                <span class="post-meta-dot"></span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="post-title">
+                <a href="article.html">The Timeless Appeal of Mid-Century Milanese Architecture</a>
+              </h3>
+              <p class="post-excerpt">
+                Exploring Gio Ponti, Caccia Dominioni, and the enduring spatial proportions that make Milanese residential design special.
+              </p>
+            </div>
+            <div class="post-footer">
+              <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
           </div>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- =========================================================================
-       Personal Connect Callout
-       ========================================================================= -->
-  <section class="section section-alt">
-    <div class="container container-narrow text-center reveal">
-      <h2 class="heading-1" style="margin-bottom:1rem;">
-        Let's connect.
-      </h2>
-      <p class="text-lead" style="margin-bottom:2rem;">
-        Whether you have questions about the market, want to discuss a potential partnership, or simply want to chat about architecture and technology, feel free to drop me a line.
-      </p>
-      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary">
-          Contact Me
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="mailto:contact@lorenzoairoldi.com" class="btn btn-secondary">
-          contact@lorenzoairoldi.com
-        </a>
+      <!-- Empty State -->
+      <div id="post-empty-state" style="display:none; text-align:center; padding:4rem 2rem; background:var(--bg-card); border-radius:var(--radius-md); border:1px solid var(--border-card); margin-top:2rem;">
+        <h3 class="heading-3" style="margin-bottom:0.5rem;">No matching posts found</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem;">Try another keyword or select a different category filter.</p>
       </div>
     </div>
   </section>
@@ -458,3 +407,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

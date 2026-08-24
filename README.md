@@ -1,26 +1,22 @@
-# Lorenzo Airoldi | Real Estate Advisory
+# Lorenzo Airoldi | Personal Website
 
-Personal branding and advisory website for **Lorenzo Airoldi** — Real Estate Consultant & Strategic Advisor.
+Personal website, portfolio, and writing hub of **Lorenzo Airoldi** — exploring real estate advisory, modern architecture, technology, and investments.
 
 ## Design System & Aesthetic
-- **Design Philosophy**: Minimalist, architectural, and elegant with generous whitespace and modern typography.
-- **Color Palette**:
-  - Deep Slate / Charcoal: `#1E293B`, `#0F172A`
-  - Soft Off-White / Sand: `#FAF8F5`, `#F8FAFC`, `#F1F5F9`
-  - Muted Bronze: `#9A7B4F` (Accent), `#83653A` (Hover)
-  - Muted Olive / Sage: `#4A5D4E` (Subtle accent)
+- **Theme**: Dark theme by default (Obsidian Slate `#0B0F17` / `#151D2F`) with a fast, instant Light Mode switch (`#F8FAFC` / `#FFFFFF`).
+- **Brand Accent**: Royal Indigo / Electric Violet (`#6366F1`) matching the custom geometric "LA" logo.
 - **Typography**:
-  - Headers: `Playfair Display` & `Cormorant Garamond` (Serif)
-  - Body & UI: `Plus Jakarta Sans` (Modern geometric sans-serif)
+  - Headers: `Playfair Display` & `Cormorant Garamond`
+  - Body & UI: `Plus Jakarta Sans`
 
-## Page Architecture
-1. **Homepage (`index.html`)**: Sticky glass header, architectural hero section, trust stats (€45M+ Volume, 99% Satisfaction), 4 tailored advisory services, philosophy split, featured quarterly insights, and CTA banner.
-2. **About Me (`about.html`)**: Narrative background in quantitative economics and real estate, 3 core values, 4-phase advisory methodology, and career milestones timeline.
-3. **Market Insights (`blog.html`)**: Market trends, buyer guides, and tech intelligence with real-time tag filtering and instant search.
-4. **Article Reader (`article.html`)**: Dedicated editorial template with drop caps, pull quotes, callout advice boxes, author card, and related articles.
-5. **Contact & Consultation (`contact.html`)**: Direct touchpoints (Milan office, telephone/WhatsApp, direct email), interactive inquiry form with validation feedback, and FAQ accordion.
+## Navigation & Page Structure
+1. **Home (`index.html`)**: Welcoming personal intro, focus areas (Real Estate Advisory, Market Research, Technology & Living), recent posts, and quick connect.
+2. **About me (`about.html`)**: Personal story, economics & analytical background, core working principles, and career milestones timeline.
+3. **Posts (`posts.html`)**: Essays, housing analyses, architectural guides, and reflections with real-time category filtering and live search.
+4. **Article Reader (`article.html`)**: Dedicated editorial reader with dark/light support, callout takeaways, pull quotes, and author bio.
+5. **Contact (`contact.html`)**: Direct touchpoints (email, Milan location, LinkedIn, Instagram) and a clean message form.
 
 ## Technical Details
-- Pure semantic HTML5, modern CSS3 (Custom Properties & Grid/Flexbox), and lightweight Vanilla JavaScript.
-- Fully responsive across desktop, tablet, and mobile devices.
-- Ready for GitHub Pages deployment.
+- Pure semantic HTML5, CSS3 Custom Properties (`data-theme="dark"` / `data-theme="light"`), and Vanilla JavaScript.
+- Zero-flicker instant theme loading via inline script.
+- Responsive across mobile, tablet, and desktop viewports.

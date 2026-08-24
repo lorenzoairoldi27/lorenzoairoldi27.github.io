@@ -1,20 +1,40 @@
 /**
- * LORENZO AIROLDI | MODERN REAL ESTATE CONSULTING
- * Master JavaScript - Interactions, Filtering & Micro-animations
+ * LORENZO AIROLDI | PERSONAL WEBSITE
+ * Core Interactions, Theme Switcher (Dark/Light), Post Filtering & Micro-interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initHeader();
   initMobileMenu();
   initScrollReveal();
-  initBlogFilters();
+  initPostFilters();
   initContactForm();
-  initFaqAccordion();
-  initNewsletterForm();
 });
 
 /* --------------------------------------------------------------------------
-   1. Sticky Header & Scroll Effects
+   1. Theme Switcher (Dark & Light Mode)
+   -------------------------------------------------------------------------- */
+function initThemeToggle() {
+  const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+  
+  // Retrieve saved theme or default to dark
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   2. Sticky Header
    -------------------------------------------------------------------------- */
 function initHeader() {
   const header = document.querySelector('.site-header');
@@ -33,7 +53,7 @@ function initHeader() {
 }
 
 /* --------------------------------------------------------------------------
-   2. Mobile Drawer Navigation
+   3. Mobile Navigation Drawer
    -------------------------------------------------------------------------- */
 function initMobileMenu() {
   const mobileToggle = document.querySelector('.mobile-toggle');
@@ -66,7 +86,7 @@ function initMobileMenu() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Scroll Reveal Animations (IntersectionObserver)
+   4. Scroll Reveal Animations
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
@@ -87,32 +107,31 @@ function initScrollReveal() {
 
     reveals.forEach(el => observer.observe(el));
   } else {
-    // Fallback for older browsers
     reveals.forEach(el => el.classList.add('active'));
   }
 }
 
 /* --------------------------------------------------------------------------
-   4. Blog Category Filtering & Live Search
+   5. Posts Category Filtering & Live Search
    -------------------------------------------------------------------------- */
-function initBlogFilters() {
+function initPostFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const searchInput = document.querySelector('#blog-search-input');
-  const articleCards = document.querySelectorAll('.blog-article-item');
-  const emptyState = document.querySelector('#blog-empty-state');
+  const searchInput = document.querySelector('#post-search-input');
+  const postCards = document.querySelectorAll('.post-item');
+  const emptyState = document.querySelector('#post-empty-state');
 
   if (!filterButtons.length && !searchInput) return;
 
   let currentCategory = 'all';
   let searchQuery = '';
 
-  function filterArticles() {
+  function filterPosts() {
     let visibleCount = 0;
 
-    articleCards.forEach(card => {
+    postCards.forEach(card => {
       const cardCategory = card.getAttribute('data-category') || '';
-      const title = (card.querySelector('.insight-title')?.textContent || '').toLowerCase();
-      const excerpt = (card.querySelector('.insight-excerpt')?.textContent || '').toLowerCase();
+      const title = (card.querySelector('.post-title')?.textContent || '').toLowerCase();
+      const excerpt = (card.querySelector('.post-excerpt')?.textContent || '').toLowerCase();
 
       const matchesCategory = currentCategory === 'all' || cardCategory.toLowerCase() === currentCategory.toLowerCase();
       const matchesSearch = !searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery);
@@ -135,32 +154,31 @@ function initBlogFilters() {
       filterButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCategory = btn.getAttribute('data-filter') || 'all';
-      filterArticles();
+      filterPosts();
     });
   });
 
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.trim().toLowerCase();
-      filterArticles();
+      filterPosts();
     });
   }
 }
 
 /* --------------------------------------------------------------------------
-   5. Interactive Contact Form Submission & Toast
+   6. Contact Form Simulation
    -------------------------------------------------------------------------- */
 function initContactForm() {
-  const form = document.querySelector('#consultation-form');
+  const form = document.querySelector('#contact-form');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.innerHTML : 'Send Inquiry';
+    const originalText = submitBtn ? submitBtn.innerHTML : 'Send Message';
 
-    // Disable button & show spinner
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
@@ -168,69 +186,23 @@ function initContactForm() {
           <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
           <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
         </svg>
-        Sending Request...
+        Sending...
       `;
     }
 
-    // Simulate asynchronous server dispatch
     setTimeout(() => {
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
       }
       form.reset();
-      showToast('Thank you! Your consultation request has been received. Lorenzo will reach out within 24 hours.');
-    }, 1200);
+      showToast('Message sent! Thanks for reaching out — I will get back to you shortly.');
+    }, 1000);
   });
 }
 
 /* --------------------------------------------------------------------------
-   6. FAQ Accordion
-   -------------------------------------------------------------------------- */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  if (!faqItems.length) return;
-
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    if (!question) return;
-
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      // Close all other items for clean single-expanded experience
-      faqItems.forEach(other => {
-        if (other !== item) other.classList.remove('active');
-      });
-
-      if (!isActive) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   7. Newsletter Subscription Simulation
-   -------------------------------------------------------------------------- */
-function initNewsletterForm() {
-  const newsletterForms = document.querySelectorAll('.newsletter-form');
-  newsletterForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('input[type="email"]');
-      if (input && input.value) {
-        input.value = '';
-        showToast('Subscribed to Market Insights Quarterly! Check your inbox for the latest briefing.');
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   8. Global Toast Notification Utility
+   7. Toast Notification Utility
    -------------------------------------------------------------------------- */
 function showToast(message) {
   let toast = document.querySelector('.toast-notification');
@@ -238,7 +210,7 @@ function showToast(message) {
     toast = document.createElement('div');
     toast.className = 'toast-notification';
     toast.innerHTML = `
-      <div class="toast-icon">
+      <div style="color:var(--accent-light); display:flex;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
@@ -254,6 +226,5 @@ function showToast(message) {
   toast.classList.add('show');
   setTimeout(() => {
     toast.classList.remove('show');
-  }, 4500);
+  }, 4000);
 }
-
