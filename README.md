@@ -1,6 +1,6 @@
 # Lorenzo Airoldi | Personal Website
 
-Personal website, portfolio, and blog of **Lorenzo Airoldi** — software developer, builder, and creator.
+Personal website, portfolio, and blog of **Lorenzo Airoldi** — Real Estate Consultant.
 
 ## Features & Aesthetic
 - **Theme**: Dark theme by default (Obsidian Slate `#0B0F17` / `#151D2F`) with a fast, instant Light Mode switch (`#F8FAFC` / `#FFFFFF`).
