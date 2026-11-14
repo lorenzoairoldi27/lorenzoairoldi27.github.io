@@ -56,6 +56,16 @@
         <a href="contact.html" class="dock-link">Get in touch</a>
       </div>
 
+      <!-- Quick Command Palette Shortcut Button -->
+      <button class="cmd-palette-trigger" title="Command Palette (Cmd+K / Ctrl+K)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search</span>
+        <span class="cmd-kbd-badge">⌘K</span>
+      </button>
+
       <button class="theme-toggle-dock" aria-label="Toggle theme" title="Toggle theme">
         <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"></circle>
@@ -131,8 +141,8 @@
               src="assets/img/lorenzo.png" 
               alt="Lorenzo Airoldi Portrait" 
               class="portrait-img-cutout"
-              width="420"
-              height="490"
+              width="440"
+              height="460"
             >
             <div class="portrait-status-pill">
               <div style="display:flex; align-items:center; gap:0.55rem;">
@@ -289,12 +299,17 @@
        ========================================================================= -->
   <section class="section">
     <div class="container container-narrow">
-      <div class="text-center" style="margin-bottom:3rem;">
-        <div class="badge-pill" style="margin:0 auto 0.75rem;">Interactive Milestones</div>
-        <h2 class="heading-section">Journey & Experience Timeline</h2>
-        <p class="text-lead" style="margin:0 auto; max-width:540px;">
-          Click any milestone to expand detailed accomplishments, technologies, and context.
-        </p>
+      <div class="flex-between" style="margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div class="badge-pill" style="margin-bottom:0.75rem;">Interactive Milestones</div>
+          <h2 class="heading-section">Journey & Experience Timeline</h2>
+          <p class="text-lead" style="margin:0; max-width:540px;">
+            Click any milestone to expand detailed accomplishments, technologies, and context.
+          </p>
+        </div>
+        <button id="timeline-toggle-all-btn" class="btn btn-glass" style="font-size:0.82rem; padding:0.5rem 1rem;">
+          Expand All
+        </button>
       </div>
 
       <!-- Interactive Timeline Component -->

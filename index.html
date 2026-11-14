@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lorenzo Airoldi | Personal Website</title>
-  <meta name="description" content="Personal website of Lorenzo Airoldi. Software developer, creator, and writer exploring code, systems, and modern digital design.">
+  <title>Lorenzo Airoldi | Software Developer & Creator</title>
+  <meta name="description" content="Personal interactive website of Lorenzo Airoldi. Full-stack developer, builder, and creator crafting modern digital experiences.">
   <meta name="author" content="Lorenzo Airoldi">
 
-  <!-- Instant Theme Execution -->
+  <!-- Instant Theme Execution (Zero Flicker) -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -17,177 +17,179 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lorenzo Airoldi | Personal Website">
-  <meta property="og:description" content="Software developer, builder, and creator. Explore my projects, thoughts, and writings.">
+  <meta property="og:title" content="Lorenzo Airoldi | Interactive Personal Hub">
+  <meta property="og:description" content="Explore interactive projects, engineering notes, and digital craftsmanship.">
   <meta property="og:url" content="https://lorenzoairoldi27.github.io/">
   <meta property="og:image" content="assets/img/logo.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo.png">
 
-  <!-- Google Fonts -->
+  <!-- Modern Fonts (Space Grotesk + Plus Jakarta Sans + JetBrains Mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Ambient Cursor Spotlight & Reading Progress -->
+  <div class="cursor-spotlight"></div>
+  <div class="scroll-progress-bar"></div>
+
   <!-- =========================================================================
-       Navigation Header
+       Interactive Navigation Dock
        ========================================================================= -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
-        <span class="brand-name">Lorenzo Airoldi</span>
+    <nav class="nav-dock" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link" aria-label="Lorenzo Airoldi Home">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-avatar" width="36" height="36">
+        <span>Lorenzo Airoldi</span>
       </a>
 
-      <!-- Desktop Navigation (Order: Home, Blog, About me, Get in touch) -->
-      <nav class="nav-desktop" aria-label="Primary Navigation">
-        <div class="nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="about.html" class="nav-link">About me</a>
-          <a href="contact.html" class="nav-link">Get in touch</a>
-        </div>
-
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </nav>
-
-      <!-- Mobile Actions -->
-      <div class="mobile-actions">
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button class="hamburger-btn" aria-label="Open mobile navigation">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+      <!-- Desktop Links (Order: Home, Blog, About me, Get in touch) -->
+      <div class="nav-links-wrap">
+        <a href="index.html" class="dock-link active">Home</a>
+        <a href="blog.html" class="dock-link">Blog</a>
+        <a href="about.html" class="dock-link">About me</a>
+        <a href="contact.html" class="dock-link">Get in touch</a>
       </div>
-    </div>
+
+      <!-- Quick Command Palette Shortcut Button -->
+      <button class="cmd-palette-trigger" title="Command Palette (Cmd+K / Ctrl+K)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search</span>
+        <span class="cmd-kbd-badge">⌘K</span>
+      </button>
+
+      <button class="theme-toggle-dock" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <button class="hamburger-dock" aria-label="Toggle mobile menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
   </header>
 
   <!-- Mobile Drawer -->
   <div class="mobile-backdrop"></div>
-  <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
-    <div class="mobile-menu-header">
-      <div class="brand-logo">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
-        <span class="brand-name">Lorenzo Airoldi</span>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="flex-between">
+        <div class="brand-link">
+          <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="34" height="34">
+          <span>Lorenzo Airoldi</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close menu" style="cursor:pointer; padding:0.4rem; color:var(--text-primary);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
-      <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
 
-    <nav class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link active">Home</a>
-      <a href="blog.html" class="mobile-nav-link">Blog</a>
-      <a href="about.html" class="mobile-nav-link">About me</a>
-      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
-    </nav>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-item active">Home</a>
+        <a href="blog.html" class="mobile-nav-item">Blog</a>
+        <a href="about.html" class="mobile-nav-item">About me</a>
+        <a href="contact.html" class="mobile-nav-item">Get in touch</a>
+      </nav>
+    </div>
 
     <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
       <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
-      <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
+      <div class="text-mono" style="font-size:0.75rem; color:var(--text-muted); text-align:center;">
         contact@lorenzoairoldi.com
       </div>
     </div>
   </aside>
 
   <!-- =========================================================================
-       Hero Section (With Lorenzo's Photo)
+       Hero Section (Interactive Particles & 3D Portrait Showcase)
        ========================================================================= -->
-  <section class="hero-home">
+  <section class="section-hero">
+    <canvas id="hero-particle-canvas" class="hero-canvas-bg"></canvas>
+
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-content reveal">
-          <div class="text-eyebrow">Developer • Builder • Creator</div>
-          <h1 class="heading-display">
-            Hey, I'm Lorenzo Airoldi.
+        <!-- Hero Text Column -->
+        <div class="hero-text-col">
+          <div class="badge-pill">
+            <div class="badge-pulse-dot"></div>
+            <span>Available for innovative projects & collaborations</span>
+          </div>
+
+          <h1 class="heading-hero">
+            Crafting digital <br>
+            <span class="text-gradient">interfaces & systems</span> <br>
+            with precision.
           </h1>
+
           <p class="text-lead">
-            I'm a software developer and creator. I build fast, elegant web applications, explore distributed systems, and write about software engineering, design, and ideas.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              Explore Projects
+            <a href="contact.html" class="btn btn-primary">
+              Get in Touch
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="blog.html" class="btn btn-secondary">
-              Read Blog
+            <a href="#bento-showcase" class="btn btn-glass">
+              Explore Showcase
             </a>
-            <a href="about.html" class="btn btn-secondary">
-              About Me
-            </a>
-          </div>
-
-          <!-- Tech Stack Chips -->
-          <div class="hero-tech-stack">
-            <span class="chip">TypeScript</span>
-            <span class="chip">React & Next.js</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">Python</span>
-            <span class="chip">Go</span>
-            <span class="chip">UI/UX Design</span>
-            <span class="chip">Open Source</span>
+            <button class="btn btn-glass copy-trigger" data-copy="contact@lorenzoairoldi.com" title="Copy email address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Email
+            </button>
           </div>
         </div>
 
-        <!-- Lorenzo's Portrait Photo -->
-        <div class="reveal reveal-delay-2" style="display:flex; justify-content:center;">
-          <div class="portrait-wrapper">
+        <!-- Hero Portrait Showcase (Transparent Cutout with 3D Tilt) -->
+        <div class="portrait-showcase">
+          <div class="portrait-aura"></div>
+          <div class="portrait-frame tilt-element">
             <img 
-              src="assets/img/lorenzo.jpg" 
-              alt="Lorenzo Airoldi" 
-              class="portrait-image"
-              width="380"
-              height="475"
+              src="assets/img/lorenzo.png" 
+              alt="Lorenzo Airoldi Portrait" 
+              class="portrait-img-cutout"
+              width="440"
+              height="460"
             >
-            <div class="portrait-badge">
-              <div class="portrait-badge-dot"></div>
-              <span>Software Developer & Creator</span>
+            <div class="portrait-status-pill">
+              <div style="display:flex; align-items:center; gap:0.55rem;">
+                <span class="badge-pulse-dot"></span>
+                <span style="font-size:0.85rem; font-weight:700;">Lorenzo Airoldi</span>
+              </div>
+              <span class="text-mono" style="font-size:0.75rem; color:var(--text-muted);">Milan, IT</span>
             </div>
           </div>
         </div>
@@ -196,229 +198,300 @@
   </section>
 
   <!-- =========================================================================
-       Featured Projects Section
+       Interactive Bento Grid Showcase
        ========================================================================= -->
-  <section class="section section-alt" id="projects">
+  <section class="section section-alt" id="bento-showcase">
     <div class="container">
-      <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
+      <div class="flex-between" style="margin-bottom:3.5rem; flex-wrap:wrap; gap:1rem;">
         <div>
-          <div class="text-eyebrow">Selected Work</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">Featured Projects</h2>
+          <div class="badge-pill" style="margin-bottom:0.75rem;">Interactive Showcase</div>
+          <h2 class="heading-section">Engineered for depth & interactivity</h2>
         </div>
-        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="btn-link">
-          View on GitHub
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="7" y1="17" x2="17" y2="7"></line>
-            <polyline points="7 7 17 7 17 17"></polyline>
-          </svg>
-        </a>
+        <p class="text-lead" style="max-width:480px; margin:0;">
+          Hover, click, and interact with the modules below to explore real-time telemetry, code sandbox tabs, and core stack components.
+        </p>
       </div>
 
-      <div class="grid-2">
-        <!-- Project 1 -->
-        <div class="project-card reveal reveal-delay-1">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+      <!-- Bento Grid (12 Columns) -->
+      <div class="bento-grid">
+        
+        <!-- Bento 1: Interactive Terminal Sandbox (Col 7) -->
+        <div class="spotlight-card bento-col-7">
+          <div class="spotlight-inner">
+            <div>
+              <div class="flex-between">
+                <div class="card-header-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                </div>
+                <span class="badge-pill" style="font-size:0.75rem;">Interactive Terminal</span>
+              </div>
+              <h3 class="heading-card">Developer Environment & Runtime</h3>
+              <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.4rem;">
+                Toggle between source files or copy runtime objects directly.
+              </p>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.6rem;">High-Performance Dev Tools</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
-              A suite of lightweight CLI utilities and developer workflow accelerators built in Go and TypeScript to streamline local development, profiling, and build automation.
-            </p>
-          </div>
-          <div class="project-tags">
-            <span class="badge">Go</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">CLI</span>
+
+            <!-- Terminal Component -->
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot terminal-dot-red"></span>
+                  <span class="terminal-dot terminal-dot-yellow"></span>
+                  <span class="terminal-dot terminal-dot-green"></span>
+                </div>
+                <div class="terminal-tabs">
+                  <button class="terminal-tab-btn active" data-file="profile.ts">profile.ts</button>
+                  <button class="terminal-tab-btn" data-file="stats.json">stats.json</button>
+                  <button class="terminal-tab-btn" data-file="output.log">output.log</button>
+                </div>
+              </div>
+              <div class="terminal-body">
+                <span class="syntax-kw">const</span> <span class="syntax-fn">engineer</span> = {<br>
+                &nbsp;&nbsp;name: <span class="syntax-str">"Lorenzo Airoldi"</span>,<br>
+                &nbsp;&nbsp;focus: [<span class="syntax-str">"Full-Stack"</span>, <span class="syntax-str">"Systems"</span>, <span class="syntax-str">"UI/UX"</span>],<br>
+                &nbsp;&nbsp;status: <span class="syntax-str">"Building responsive modern interfaces"</span>,<br>
+                &nbsp;&nbsp;available: <span class="syntax-kw">true</span><br>
+                };
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card reveal reveal-delay-2">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="9" y1="21" x2="9" y2="9"></line>
-              </svg>
+        <!-- Bento 2: Dynamic Live Metrics (Col 5) -->
+        <div class="spotlight-card bento-col-5">
+          <div class="spotlight-inner">
+            <div>
+              <div class="card-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 20V10"></path>
+                  <path d="M12 20V4"></path>
+                  <path d="M6 20v-6"></path>
+                </svg>
+              </div>
+              <h3 class="heading-card">Performance Metrics</h3>
+              <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.4rem;">
+                Click any metric card to re-trigger animated calculation physics.
+              </p>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.6rem;">Minimalist UI & Component System</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
-              An accessible, themeable design system featuring zero-dependency micro-interactions, dark/light token architecture, and fluid typography.
-            </p>
-          </div>
-          <div class="project-tags">
-            <span class="badge">CSS3</span>
-            <span class="badge">React</span>
-            <span class="badge">Design Systems</span>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:2rem;">
+              <div style="background:var(--bg-surface-elevated); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-subtle); transition:transform var(--trans-fast);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="stat-number counter-val text-gradient" data-target="99.9" data-suffix="%" data-decimals="1">0</div>
+                <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.35rem; font-weight:600;">System Uptime</div>
+              </div>
+              <div style="background:var(--bg-surface-elevated); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-subtle); transition:transform var(--trans-fast);" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
+                <div class="stat-number counter-val" data-target="24" data-suffix="+" data-decimals="0">0</div>
+                <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.35rem; font-weight:600;">Shipped Projects</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card reveal reveal-delay-1">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
+        <!-- Bento 3: Tech Matrix & Tooling (Col 4) -->
+        <div class="spotlight-card bento-col-4">
+          <div class="spotlight-inner">
+            <div>
+              <div class="card-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="heading-card">Core Tech Stack</h3>
+              <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.4rem;">
+                Click any technology chip to inspect stack details.
+              </p>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.6rem;">Real-time Metrics Dashboard</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
-              Interactive full-stack telemetry and analytics platform with WebSocket live streaming, custom charting widgets, and automated alert dispatch.
-            </p>
-          </div>
-          <div class="project-tags">
-            <span class="badge">Next.js</span>
-            <span class="badge">Node.js</span>
-            <span class="badge">WebSockets</span>
+
+            <div class="tech-cloud">
+              <span class="tech-tag">⚡ TypeScript</span>
+              <span class="tech-tag">⚛️ React & Next.js</span>
+              <span class="tech-tag">🚀 Go</span>
+              <span class="tech-tag">🐍 Python</span>
+              <span class="tech-tag">🐳 Docker</span>
+              <span class="tech-tag">🎨 Modern CSS3</span>
+              <span class="tech-tag">🐘 PostgreSQL</span>
+            </div>
           </div>
         </div>
 
-        <!-- Project 4 -->
-        <div class="project-card reveal reveal-delay-2">
-          <div>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
+        <!-- Bento 4: Live Focus & Soundwave Widget (Col 4) -->
+        <div class="spotlight-card bento-col-4 deep-work-card">
+          <div class="spotlight-inner">
+            <div>
+              <div class="card-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+              </div>
+              <h3 class="heading-card">Current Focus</h3>
+              <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.4rem;">
+                Click card to toggle focus audio visualizer.
+              </p>
             </div>
-            <h3 class="heading-3" style="margin-bottom:0.6rem;">Distributed Microservices API</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
-              Containerized backend infrastructure with rate limiting, JWT token management, and structured logging designed for high throughput and fault tolerance.
-            </p>
-          </div>
-          <div class="project-tags">
-            <span class="badge">Docker</span>
-            <span class="badge">Python</span>
-            <span class="badge">PostgreSQL</span>
+
+            <div style="background:var(--bg-surface-elevated); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-subtle); margin-top:1.5rem; display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <span style="font-size:1.4rem;">🎧</span>
+                <div>
+                  <div style="font-size:0.85rem; font-weight:700;">Deep Work Radio</div>
+                  <div class="deep-work-status" style="font-size:0.75rem; color:var(--text-muted);">Ambient Electronics</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:3px; align-items:flex-end; height:18px;">
+                <span class="eq-bar eq-bar-1"></span>
+                <span class="eq-bar eq-bar-2"></span>
+                <span class="eq-bar eq-bar-3"></span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Bento 5: Instant Direct Connect (Col 4) -->
+        <div class="spotlight-card bento-col-4">
+          <div class="spotlight-inner">
+            <div>
+              <div class="card-header-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <h3 class="heading-card">Direct Dispatch</h3>
+              <p style="color:var(--text-secondary); font-size:0.92rem; margin-top:0.4rem;">
+                Ready to talk architecture, code, or product design? Reach out directly.
+              </p>
+            </div>
+
+            <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+              <a href="contact.html" class="btn btn-primary" style="width:100%;">
+                Open Contact Form
+              </a>
+              <button class="btn btn-glass copy-trigger" data-copy="contact@lorenzoairoldi.com" style="width:100%;">
+                Copy Email Address
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Recent Blog Posts
+       Recent Blog Teaser Section
        ========================================================================= -->
   <section class="section">
     <div class="container">
-      <div class="flex-between reveal" style="align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
+      <div class="flex-between" style="margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
         <div>
-          <div class="text-eyebrow">Writing</div>
-          <h2 class="heading-1" style="margin-top:0.5rem;">Recent Blog Posts</h2>
+          <div class="badge-pill" style="margin-bottom:0.75rem;">Editorial Notes</div>
+          <h2 class="heading-section">Recent Thoughts & Articles</h2>
         </div>
-        <a href="blog.html" class="btn-link">
-          All Posts
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="blog.html" class="btn btn-glass">
+          View All Posts
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
       </div>
 
-      <div class="grid-3">
-        <!-- Post 1 -->
-        <article class="blog-card reveal reveal-delay-1">
-          <div class="blog-content">
-            <div>
-              <div class="blog-meta">
+      <div class="blog-grid">
+        <!-- Article 1 -->
+        <article class="article-card" data-article-id="art-1">
+          <div>
+            <div class="article-header-meta">
+              <div class="article-date-meta">
                 <span>August 2026</span>
-                <span class="blog-meta-dot"></span>
+                <span>•</span>
                 <span>6 min read</span>
               </div>
-              <h3 class="blog-title">
-                <a href="article.html">Architecting Modern Web Applications in 2026</a>
-              </h3>
-              <p class="blog-excerpt">
-                A breakdown of modern frontend architectures, edge compute primitives, and why simplicity is the ultimate scalability strategy.
-              </p>
+              <button class="bookmark-toggle-btn" data-article-id="art-1" aria-label="Bookmark article">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </button>
             </div>
-            <div class="blog-footer">
-              <span class="badge">Engineering</span>
-              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-            </div>
+            <h3 class="article-title">
+              <a href="article.html">Architecting Modern Web Applications in 2026</a>
+            </h3>
+            <p class="article-excerpt">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit.
+            </p>
+          </div>
+          <div class="article-footer">
+            <span class="badge-pill" style="font-size:0.75rem;">Engineering</span>
+            <a href="article.html" class="btn-link" style="color:var(--accent-primary); font-weight:700; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.35rem;">
+              Read post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
           </div>
         </article>
 
-        <!-- Post 2 -->
-        <article class="blog-card reveal reveal-delay-2">
-          <div class="blog-content">
-            <div>
-              <div class="blog-meta">
+        <!-- Article 2 -->
+        <article class="article-card" data-article-id="art-2">
+          <div>
+            <div class="article-header-meta">
+              <div class="article-date-meta">
                 <span>July 2026</span>
-                <span class="blog-meta-dot"></span>
+                <span>•</span>
                 <span>5 min read</span>
               </div>
-              <h3 class="blog-title">
-                <a href="article.html">The Art of Minimalist UI Design</a>
-              </h3>
-              <p class="blog-excerpt">
-                Why removing visual clutter, respecting whitespace, and refining typography leads to higher user trust and engagement.
-              </p>
+              <button class="bookmark-toggle-btn" data-article-id="art-2" aria-label="Bookmark article">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </button>
             </div>
-            <div class="blog-footer">
-              <span class="badge">Design</span>
-              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-            </div>
+            <h3 class="article-title">
+              <a href="article.html">The Art of Minimalist UI Design</a>
+            </h3>
+            <p class="article-excerpt">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+            </p>
+          </div>
+          <div class="article-footer">
+            <span class="badge-pill" style="font-size:0.75rem;">Design</span>
+            <a href="article.html" class="btn-link" style="color:var(--accent-primary); font-weight:700; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.35rem;">
+              Read post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
           </div>
         </article>
 
-        <!-- Post 3 -->
-        <article class="blog-card reveal reveal-delay-3">
-          <div class="blog-content">
-            <div>
-              <div class="blog-meta">
+        <!-- Article 3 -->
+        <article class="article-card" data-article-id="art-3">
+          <div>
+            <div class="article-header-meta">
+              <div class="article-date-meta">
                 <span>June 2026</span>
-                <span class="blog-meta-dot"></span>
+                <span>•</span>
                 <span>4 min read</span>
               </div>
-              <h3 class="blog-title">
-                <a href="article.html">Building Fast, Resilient Systems from Scratch</a>
-              </h3>
-              <p class="blog-excerpt">
-                Practical techniques for avoiding dependency bloat, managing state efficiently, and writing clean, maintainable code.
-              </p>
+              <button class="bookmark-toggle-btn" data-article-id="art-3" aria-label="Bookmark article">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </button>
             </div>
-            <div class="blog-footer">
-              <span class="badge">Systems</span>
-              <a href="article.html" class="btn-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-            </div>
+            <h3 class="article-title">
+              <a href="article.html">Building Fast, Resilient Systems from Scratch</a>
+            </h3>
+            <p class="article-excerpt">
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="article-footer">
+            <span class="badge-pill" style="font-size:0.75rem;">Systems</span>
+            <a href="article.html" class="btn-link" style="color:var(--accent-primary); font-weight:700; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.35rem;">
+              Read post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       Connect Callout
-       ========================================================================= -->
-  <section class="section section-alt">
-    <div class="container container-narrow text-center reveal">
-      <h2 class="heading-1" style="margin-bottom:1rem;">
-        Let's build something together.
-      </h2>
-      <p class="text-lead" style="margin-bottom:2rem;">
-        Whether you want to discuss a project, collaborate on open source, or simply connect, feel free to reach out.
-      </p>
-      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary">
-          Get in Touch
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="mailto:contact@lorenzoairoldi.com" class="btn btn-secondary">
-          contact@lorenzoairoldi.com
-        </a>
       </div>
     </div>
   </section>
@@ -428,34 +501,38 @@
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div style="display:flex; align-items:center; gap:0.75rem;">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
-        <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
-        <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
+      <div style="display:flex; align-items:center; gap:0.85rem;">
+        <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="32" height="32">
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Lorenzo Airoldi</div>
+          <div class="live-time-display text-mono" style="font-size:0.75rem; color:var(--text-muted);">
+            Milan, Italy
+          </div>
+        </div>
       </div>
 
       <div class="footer-nav">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="blog.html" class="footer-link">Blog</a>
-        <a href="about.html" class="footer-link">About me</a>
-        <a href="contact.html" class="footer-link">Get in touch</a>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About me</a>
+        <a href="contact.html">Get in touch</a>
       </div>
 
       <div class="footer-socials">
-        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
           </svg>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="mailto:contact@lorenzoairoldi.com" class="social-circle-btn" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
@@ -468,4 +545,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-

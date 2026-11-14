@@ -1,7 +1,9 @@
 /**
  * ==========================================================================
- * LORENZO AIROLDI | INTERACTIVE WEB RUNTIME & MICRO-INTERACTIONS
- * Modules: Particles, Spotlight, 3D Tilt, Bento Sandbox, Filtering, Multi-Step Form
+ * LORENZO AIROLDI | ENHANCED INTERACTIVE RUNTIME & MICRO-INTERACTIONS
+ * Modules: Command Palette (Cmd+K), Canvas Particles, Canvas Confetti,
+ *          Spotlight Tracking, 3D Tilt, Audio FX, Bento Sandbox, Live Filters,
+ *          Reading Drawer Modal, Timeline Engine, Multi-Step Form
  * ==========================================================================
  */
 
@@ -15,12 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatedCounters();
   initLiveClock();
   initNavigationDock();
+  initCommandPalette();
   initTerminalSandbox();
+  initDeepWorkPlayer();
+  initTechPillInspector();
   initBlogExperience();
   initInteractiveTimeline();
   initSkillsMatrix();
   initMultiStepForm();
   initClipboardButtons();
+  initSoundEffects();
 });
 
 /* --------------------------------------------------------------------------
@@ -37,8 +43,8 @@ function initThemeEngine() {
       const target = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', target);
       localStorage.setItem('theme', target);
-      // Trigger canvas theme update if active
-      if (window.updateCanvasColors) window.updateCanvasColors();
+      playMicroSound(target === 'dark' ? 380 : 540);
+      showToast(`Switched to ${target} mode`);
     });
   });
 }
@@ -79,7 +85,6 @@ function initCursorSpotlight() {
   }, { passive: true });
 
   const loop = () => {
-    // Smooth lerp interpolation
     currentX += (mouseX - currentX) * 0.12;
     currentY += (mouseY - currentY) * 0.12;
     spotlight.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
@@ -92,7 +97,7 @@ function initCursorSpotlight() {
    4. Card Spotlight Tracking (Dynamic CSS variables)
    -------------------------------------------------------------------------- */
 function initCardSpotlights() {
-  const cards = document.querySelectorAll('.spotlight-card, .article-card, .timeline-card');
+  const cards = document.querySelectorAll('.spotlight-card, .article-card, .timeline-card, .channels-card, .multi-step-form-card');
   if (!cards.length) return;
 
   cards.forEach(card => {
@@ -114,7 +119,7 @@ function init3DTilt() {
   if (!tiltElements.length || window.matchMedia('(pointer: coarse)').matches) return;
 
   tiltElements.forEach(el => {
-    const maxTilt = 10; // degrees
+    const maxTilt = 8; // gentle smooth degrees
 
     el.addEventListener('mousemove', (e) => {
       const rect = el.getBoundingClientRect();
@@ -146,7 +151,7 @@ function initHeroCanvas() {
   let width, height;
   let particles = [];
   let isVisible = true;
-  let mouse = { x: -1000, y: -1000, radius: 140 };
+  let mouse = { x: -1000, y: -1000, radius: 150 };
 
   const resize = () => {
     width = canvas.width = canvas.parentElement.offsetWidth;
@@ -171,15 +176,14 @@ function initHeroCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      // Mouse repulsion / attraction
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < mouse.radius) {
         const force = (mouse.radius - dist) / mouse.radius;
-        this.x -= (dx / dist) * force * 2.5;
-        this.y -= (dy / dist) * force * 2.5;
+        this.x -= (dx / dist) * force * 3;
+        this.y -= (dy / dist) * force * 3;
       }
     }
 
@@ -217,7 +221,6 @@ function initHeroCanvas() {
     mouse.y = -1000;
   });
 
-  // Pause when off-screen to save performance
   const observer = new IntersectionObserver((entries) => {
     isVisible = entries[0].isIntersecting;
   });
@@ -226,7 +229,6 @@ function initHeroCanvas() {
   function render() {
     if (isVisible) {
       ctx.clearRect(0, 0, width, height);
-
       const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
       const lineColor = isDark ? '99, 102, 241' : '79, 70, 229';
 
@@ -234,14 +236,13 @@ function initHeroCanvas() {
         particles[i].update();
         particles[i].draw();
 
-        // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 110) {
-            const alpha = (1 - dist / 110) * (isDark ? 0.25 : 0.12);
+          if (dist < 115) {
+            const alpha = (1 - dist / 115) * (isDark ? 0.25 : 0.12);
             ctx.beginPath();
             ctx.strokeStyle = `rgba(${lineColor}, ${alpha})`;
             ctx.lineWidth = 1;
@@ -258,45 +259,54 @@ function initHeroCanvas() {
 }
 
 /* --------------------------------------------------------------------------
-   7. Animated Stats Counters
+   7. Animated Stats Counters with Re-trigger on Click
    -------------------------------------------------------------------------- */
 function initAnimatedCounters() {
   const counters = document.querySelectorAll('.counter-val');
   if (!counters.length) return;
 
+  const runCounter = (el) => {
+    const target = parseFloat(el.getAttribute('data-target') || '0');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const duration = 1400;
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = easeProgress * target;
+
+      el.textContent = currentVal.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        el.textContent = target.toFixed(decimals) + suffix;
+      }
+    };
+    requestAnimationFrame(animate);
+  };
+
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseFloat(el.getAttribute('data-target') || '0');
-        const suffix = el.getAttribute('data-suffix') || '';
-        const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-        const duration = 1600;
-        const startTime = performance.now();
-
-        const animate = (currentTime) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease-out cubic
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const currentVal = easeProgress * target;
-
-          el.textContent = currentVal.toFixed(decimals) + suffix;
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            el.textContent = target.toFixed(decimals) + suffix;
-          }
-        };
-
-        requestAnimationFrame(animate);
-        obs.unobserve(el);
+        runCounter(entry.target);
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.3 });
 
-  counters.forEach(c => observer.observe(c));
+  counters.forEach(c => {
+    observer.observe(c);
+    // Click to re-spin metric
+    c.parentElement.style.cursor = 'pointer';
+    c.parentElement.addEventListener('click', () => {
+      playMicroSound(620);
+      runCounter(c);
+    });
+  });
 }
 
 /* --------------------------------------------------------------------------
@@ -335,7 +345,6 @@ function initNavigationDock() {
   const closeBtn = document.querySelector('.mobile-drawer-close');
   const mobileLinks = document.querySelectorAll('.mobile-nav-item');
 
-  // Sticky shadow on scroll
   if (header) {
     const handleScroll = () => {
       if (window.scrollY > 30) {
@@ -354,6 +363,7 @@ function initNavigationDock() {
     drawer.classList.add('open');
     if (backdrop) backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
+    playMicroSound(440);
   };
 
   const closeDrawer = () => {
@@ -375,7 +385,144 @@ function initNavigationDock() {
 }
 
 /* --------------------------------------------------------------------------
-   10. Interactive Terminal Sandbox Tabs
+   10. Raycast/Vercel-style Interactive Command Palette (Cmd+K / Ctrl+K)
+   -------------------------------------------------------------------------- */
+function initCommandPalette() {
+  // Create palette elements if not in DOM
+  let palette = document.querySelector('.cmd-palette-overlay');
+  if (!palette) {
+    palette = document.createElement('div');
+    palette.className = 'cmd-palette-overlay';
+    palette.innerHTML = `
+      <div class="cmd-palette-box">
+        <div class="cmd-palette-input-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="cmd-palette-input" placeholder="Type a command or jump to page... (ESC to close)" autofocus>
+          <span class="cmd-palette-badge">ESC</span>
+        </div>
+        <div class="cmd-palette-results">
+          <div class="cmd-palette-group-title">NAVIGATION</div>
+          <a href="index.html" class="cmd-palette-item" data-title="Home">
+            <span>🏠 Home</span>
+            <span class="cmd-palette-item-tag">Page</span>
+          </a>
+          <a href="blog.html" class="cmd-palette-item" data-title="Blog">
+            <span>✍️ Blog & Editorial</span>
+            <span class="cmd-palette-item-tag">Page</span>
+          </a>
+          <a href="about.html" class="cmd-palette-item" data-title="About Me">
+            <span>👤 About Me & Timeline</span>
+            <span class="cmd-palette-item-tag">Page</span>
+          </a>
+          <a href="contact.html" class="cmd-palette-item" data-title="Get in Touch">
+            <span>📬 Get in Touch / Contact</span>
+            <span class="cmd-palette-item-tag">Page</span>
+          </a>
+          <div class="cmd-palette-group-title">ACTIONS</div>
+          <button type="button" class="cmd-palette-item" data-action="toggle-theme">
+            <span>🌓 Toggle Dark / Light Theme</span>
+            <span class="cmd-palette-item-tag">Action</span>
+          </button>
+          <button type="button" class="cmd-palette-item" data-action="copy-email">
+            <span>📋 Copy Email Address</span>
+            <span class="cmd-palette-item-tag">Action</span>
+          </button>
+          <button type="button" class="cmd-palette-item" data-action="toggle-sound">
+            <span>🔊 Toggle UI Micro-Sounds</span>
+            <span class="cmd-palette-item-tag">Setting</span>
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(palette);
+  }
+
+  const input = palette.querySelector('.cmd-palette-input');
+  const items = palette.querySelectorAll('.cmd-palette-item');
+
+  const openPalette = () => {
+    palette.classList.add('open');
+    input.value = '';
+    filterItems('');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input.focus(), 50);
+    playMicroSound(520);
+  };
+
+  const closePalette = () => {
+    palette.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  // Keyboard trigger Cmd+K / Ctrl+K
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (palette.classList.contains('open')) {
+        closePalette();
+      } else {
+        openPalette();
+      }
+    } else if (e.key === 'Escape' && palette.classList.contains('open')) {
+      closePalette();
+    }
+  });
+
+  // Clicking backdrop
+  palette.addEventListener('click', (e) => {
+    if (e.target === palette) closePalette();
+  });
+
+  // Filter items
+  function filterItems(query) {
+    const q = query.toLowerCase().trim();
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (!q || text.includes(q)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  input.addEventListener('input', (e) => {
+    filterItems(e.target.value);
+  });
+
+  // Action handlers
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      const action = item.getAttribute('data-action');
+      if (action === 'toggle-theme') {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const target = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', target);
+        localStorage.setItem('theme', target);
+        showToast(`Theme changed to ${target}`);
+        closePalette();
+      } else if (action === 'copy-email') {
+        navigator.clipboard.writeText('contact@lorenzoairoldi.com');
+        showToast('Email copied to clipboard!');
+        closePalette();
+      } else if (action === 'toggle-sound') {
+        window.__soundEnabled = !window.__soundEnabled;
+        showToast(`UI sounds ${window.__soundEnabled ? 'enabled 🔊' : 'muted 🔇'}`);
+        closePalette();
+      }
+    });
+  });
+
+  // Attach trigger button if present in navigation dock
+  const cmdTriggerBtns = document.querySelectorAll('.cmd-palette-trigger');
+  cmdTriggerBtns.forEach(btn => btn.addEventListener('click', openPalette));
+}
+
+/* --------------------------------------------------------------------------
+   11. Interactive Terminal Sandbox Tabs
    -------------------------------------------------------------------------- */
 function initTerminalSandbox() {
   const tabButtons = document.querySelectorAll('.terminal-tab-btn');
@@ -406,13 +553,59 @@ function initTerminalSandbox() {
       const filename = btn.getAttribute('data-file');
       if (codeSnippets[filename]) {
         bodyEl.innerHTML = codeSnippets[filename];
+        playMicroSound(480);
       }
     });
   });
 }
 
 /* --------------------------------------------------------------------------
-   11. Blog Filter, Live Search & Bookmark Engine
+   12. Deep Work Audio Visualizer Widget Toggle
+   -------------------------------------------------------------------------- */
+function initDeepWorkPlayer() {
+  const playerCard = document.querySelector('.deep-work-card');
+  if (!playerCard) return;
+
+  let isPlaying = true;
+  playerCard.style.cursor = 'pointer';
+
+  playerCard.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    const bars = playerCard.querySelectorAll('.eq-bar');
+    const statusText = playerCard.querySelector('.deep-work-status');
+
+    bars.forEach(bar => {
+      bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
+    });
+
+    if (statusText) {
+      statusText.textContent = isPlaying ? 'Ambient Electronics' : 'Paused';
+    }
+
+    playMicroSound(isPlaying ? 580 : 320);
+    showToast(isPlaying ? 'Resumed Deep Work Focus 🎧' : 'Paused Deep Work Focus ⏸️');
+  });
+}
+
+/* --------------------------------------------------------------------------
+   13. Interactive Tech Pill Inspector
+   -------------------------------------------------------------------------- */
+function initTechPillInspector() {
+  const techTags = document.querySelectorAll('.tech-tag');
+  if (!techTags.length) return;
+
+  techTags.forEach(tag => {
+    tag.addEventListener('click', (e) => {
+      e.preventDefault();
+      playMicroSound(500);
+      const techName = tag.textContent.trim();
+      showToast(`Selected tech: ${techName} — primary production stack ⚡`);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   14. Blog Filter, Live Search, Bookmarks & Quick Preview Drawer
    -------------------------------------------------------------------------- */
 function initBlogExperience() {
   const categoryPills = document.querySelectorAll('.category-pill-btn');
@@ -451,9 +644,11 @@ function initBlogExperience() {
       const id = btn.getAttribute('data-article-id');
       if (savedBookmarks.includes(id)) {
         savedBookmarks = savedBookmarks.filter(item => item !== id);
+        playMicroSound(360);
         showToast('Article removed from bookmarks');
       } else {
         savedBookmarks.push(id);
+        playMicroSound(640);
         showToast('Article saved to bookmarks! 🔖');
       }
       localStorage.setItem('saved_bookmarks', JSON.stringify(savedBookmarks));
@@ -489,8 +684,6 @@ function initBlogExperience() {
 
       if (matchesCategory && matchesSearch) {
         card.style.display = '';
-        card.style.opacity = '1';
-        card.style.transform = 'scale(1)';
         visibleCount++;
       } else {
         card.style.display = 'none';
@@ -498,7 +691,20 @@ function initBlogExperience() {
     });
 
     if (emptyState) {
-      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+        const titleEl = emptyState.querySelector('h3');
+        const descEl = emptyState.querySelector('p');
+        if (activeCategory === 'saved') {
+          if (titleEl) titleEl.textContent = 'No bookmarks yet';
+          if (descEl) descEl.textContent = 'Click the bookmark icon on any article card to save it for reading later!';
+        } else {
+          if (titleEl) titleEl.textContent = 'No matching articles found';
+          if (descEl) descEl.textContent = 'Try adjusting your search terms or selecting a different category.';
+        }
+      } else {
+        emptyState.style.display = 'none';
+      }
     }
   }
 
@@ -507,6 +713,7 @@ function initBlogExperience() {
       categoryPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       activeCategory = pill.getAttribute('data-category') || 'all';
+      playMicroSound(450);
       filterArticles();
     });
   });
@@ -518,10 +725,24 @@ function initBlogExperience() {
     });
   }
 
-  // Quick Read Drawer Modal
+  // Quick Read Drawer Modal with Backdrop & ESC Support
   const quickReadButtons = document.querySelectorAll('.quick-read-trigger');
   const readingDrawer = document.querySelector('.reading-drawer');
   const drawerClose = document.querySelector('.drawer-close-btn');
+
+  // Create drawer backdrop if not in DOM
+  let drawerBackdrop = document.querySelector('.reading-drawer-backdrop');
+  if (!drawerBackdrop && readingDrawer) {
+    drawerBackdrop = document.createElement('div');
+    drawerBackdrop.className = 'reading-drawer-backdrop';
+    document.body.appendChild(drawerBackdrop);
+  }
+
+  const closeReadingDrawer = () => {
+    if (readingDrawer) readingDrawer.classList.remove('open');
+    if (drawerBackdrop) drawerBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  };
 
   if (readingDrawer) {
     quickReadButtons.forEach(btn => {
@@ -536,42 +757,55 @@ function initBlogExperience() {
         if (drawerMeta) drawerMeta.textContent = readTime;
 
         readingDrawer.classList.add('open');
+        if (drawerBackdrop) drawerBackdrop.classList.add('open');
         document.body.style.overflow = 'hidden';
+        playMicroSound(500);
       });
     });
 
-    if (drawerClose) {
-      drawerClose.addEventListener('click', () => {
-        readingDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
+    if (drawerClose) drawerClose.addEventListener('click', closeReadingDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeReadingDrawer);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && readingDrawer.classList.contains('open')) {
+        closeReadingDrawer();
+      }
+    });
   }
 }
 
 /* --------------------------------------------------------------------------
-   12. Interactive Timeline (About Me)
+   15. Interactive Timeline (About Me) with Expand/Collapse All
    -------------------------------------------------------------------------- */
 function initInteractiveTimeline() {
   const nodes = document.querySelectorAll('.timeline-node');
+  const toggleAllBtn = document.querySelector('#timeline-toggle-all-btn');
   if (!nodes.length) return;
 
   nodes.forEach(node => {
     node.addEventListener('click', () => {
       const isAlreadyExpanded = node.classList.contains('expanded');
-      // Toggle
-      if (isAlreadyExpanded) {
-        node.classList.remove('expanded');
-      } else {
-        nodes.forEach(n => n.classList.remove('expanded'));
-        node.classList.add('expanded');
-      }
+      node.classList.toggle('expanded');
+      playMicroSound(isAlreadyExpanded ? 380 : 520);
     });
   });
+
+  if (toggleAllBtn) {
+    let allExpanded = false;
+    toggleAllBtn.addEventListener('click', () => {
+      allExpanded = !allExpanded;
+      nodes.forEach(node => {
+        if (allExpanded) node.classList.add('expanded');
+        else node.classList.remove('expanded');
+      });
+      toggleAllBtn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+      playMicroSound(allExpanded ? 560 : 400);
+    });
+  }
 }
 
 /* --------------------------------------------------------------------------
-   13. Interactive Skills Matrix & Inspection Sandbox
+   16. Interactive Skills Matrix & Inspection Sandbox
    -------------------------------------------------------------------------- */
 function initSkillsMatrix() {
   const tabs = document.querySelectorAll('.skill-tab-btn');
@@ -586,6 +820,7 @@ function initSkillsMatrix() {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const cat = tab.getAttribute('data-category');
+      playMicroSound(460);
 
       cards.forEach(card => {
         const cardCat = card.getAttribute('data-category');
@@ -607,12 +842,13 @@ function initSkillsMatrix() {
 
       if (inspectorName) inspectorName.textContent = name;
       if (inspectorDesc) inspectorDesc.textContent = desc;
+      playMicroSound(540);
     });
   });
 }
 
 /* --------------------------------------------------------------------------
-   14. Dynamic Multi-Step Contact Form with Validation
+   17. Dynamic Multi-Step Contact Form with Enter-Key Handling & Confetti
    -------------------------------------------------------------------------- */
 function initMultiStepForm() {
   const form = document.querySelector('#interactive-contact-form');
@@ -628,15 +864,28 @@ function initMultiStepForm() {
   const prevBtns = form.querySelectorAll('.form-prev-step');
   const projectChips = form.querySelectorAll('.project-chip-btn');
   const successCard = document.querySelector('#form-success-card');
+  const nameInput = form.querySelector('#input-name');
+  const emailInput = form.querySelector('#input-email');
 
-  // Chip selection
-  let selectedProjectType = 'Custom Project';
+  // Prevent premature Enter key submission on steps 1 and 2
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (currentStep < totalSteps) {
+        validateAndProceed();
+      } else {
+        form.requestSubmit();
+      }
+    }
+  });
+
+  // Project chips selector
   projectChips.forEach(chip => {
     chip.addEventListener('click', (e) => {
       e.preventDefault();
       projectChips.forEach(c => c.classList.remove('selected'));
       chip.classList.add('selected');
-      selectedProjectType = chip.getAttribute('data-value') || 'Custom Project';
+      playMicroSound(500);
     });
   });
 
@@ -665,52 +914,65 @@ function initMultiStepForm() {
       const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
       progressBar.style.width = `${pct}%`;
     }
+
+    playMicroSound(480);
   };
 
-  nextBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // Validation for Step 2
-      if (currentStep === 2) {
-        const nameInput = form.querySelector('#input-name');
-        const emailInput = form.querySelector('#input-email');
-
-        if (!nameInput.value.trim()) {
-          showToast('Please enter your name');
-          nameInput.focus();
-          return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value.trim())) {
-          showToast('Please enter a valid email address');
-          emailInput.focus();
-          return;
-        }
+  const validateAndProceed = () => {
+    if (currentStep === 2) {
+      if (!nameInput.value.trim()) {
+        showToast('Please enter your name');
+        nameInput.focus();
+        return;
       }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        showToast('Please enter a valid email address');
+        emailInput.focus();
+        return;
+      }
+    }
+    goToStep(currentStep + 1);
+  };
 
-      goToStep(currentStep + 1);
-    });
-  });
+  nextBtns.forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    validateAndProceed();
+  }));
 
-  prevBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      goToStep(currentStep - 1);
+  prevBtns.forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    goToStep(currentStep - 1);
+  }));
+
+  // Real-time email validation visual indicator
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailRegex.test(emailInput.value.trim())) {
+        emailInput.style.borderColor = '#10B981';
+      } else {
+        emailInput.style.borderColor = '';
+      }
     });
-  });
+  }
 
   // Character counter for message
   const messageInput = form.querySelector('#input-message');
   const charCounter = form.querySelector('#message-char-counter');
   if (messageInput && charCounter) {
     messageInput.addEventListener('input', () => {
-      charCounter.textContent = `${messageInput.value.length} / 500`;
+      const len = messageInput.value.length;
+      charCounter.textContent = `${len} / 500`;
+      if (len > 450) {
+        charCounter.style.color = '#F59E0B';
+      } else {
+        charCounter.style.color = '';
+      }
     });
   }
 
-  // Submission
+  // Submission with confetti celebration
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -731,14 +993,87 @@ function initMultiStepForm() {
       form.style.display = 'none';
       if (successCard) {
         successCard.style.display = 'block';
+        triggerConfettiCelebration();
       }
+      playMicroSound(700);
       showToast('Message sent successfully! 🚀');
-    }, 1100);
+    }, 1000);
   });
 }
 
 /* --------------------------------------------------------------------------
-   15. Direct Copy-to-Clipboard Buttons
+   18. Canvas Confetti Particle Celebration
+   -------------------------------------------------------------------------- */
+function triggerConfettiCelebration() {
+  const canvas = document.createElement('canvas');
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.pointerEvents = 'none';
+  canvas.style.zIndex = '9999';
+  document.body.appendChild(canvas);
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+
+  const confettiCount = 120;
+  const confetti = [];
+  const colors = ['#6366F1', '#38BDF8', '#10B981', '#A855F7', '#F59E0B', '#F43F5E'];
+
+  for (let i = 0; i < confettiCount; i++) {
+    confetti.push({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+      w: Math.random() * 8 + 4,
+      h: Math.random() * 8 + 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 16,
+      vy: (Math.random() - 0.7) * 16,
+      rot: Math.random() * 360,
+      vRot: (Math.random() - 0.5) * 10,
+      alpha: 1
+    });
+  }
+
+  let animationFrame;
+  function updateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+
+    confetti.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.35; // gravity
+      p.rot += p.vRot;
+      p.alpha -= 0.008;
+
+      if (p.alpha > 0) {
+        alive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rot * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+    });
+
+    if (alive) {
+      animationFrame = requestAnimationFrame(updateConfetti);
+    } else {
+      cancelAnimationFrame(animationFrame);
+      canvas.remove();
+    }
+  }
+  updateConfetti();
+}
+
+/* --------------------------------------------------------------------------
+   19. Direct Copy-to-Clipboard Buttons
    -------------------------------------------------------------------------- */
 function initClipboardButtons() {
   const copyButtons = document.querySelectorAll('.copy-trigger');
@@ -753,6 +1088,7 @@ function initClipboardButtons() {
       try {
         await navigator.clipboard.writeText(textToCopy);
         const originalText = btn.innerHTML;
+        playMicroSound(600);
         btn.innerHTML = `
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
@@ -771,7 +1107,51 @@ function initClipboardButtons() {
 }
 
 /* --------------------------------------------------------------------------
-   16. Global Toast Notification Utility
+   20. Web Audio API Synthesizer (Micro-Clicks & Haptics)
+   -------------------------------------------------------------------------- */
+let audioCtx = null;
+window.__soundEnabled = true;
+
+function initSoundEffects() {
+  // Lazily init AudioContext on first user interaction to comply with browser policy
+  const unlockAudio = () => {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) audioCtx = new AudioContext();
+    }
+    window.removeEventListener('click', unlockAudio);
+    window.removeEventListener('keydown', unlockAudio);
+  };
+  window.addEventListener('click', unlockAudio, { once: true });
+  window.addEventListener('keydown', unlockAudio, { once: true });
+}
+
+function playMicroSound(freq = 440) {
+  if (!window.__soundEnabled || !audioCtx) return;
+  try {
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+    // Very soft volume and quick decay (18ms)
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.035);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.04);
+  } catch (err) {
+    // Silent fail if audio policy restricts
+  }
+}
+
+/* --------------------------------------------------------------------------
+   21. Global Toast Notification Utility
    -------------------------------------------------------------------------- */
 function showToast(message) {
   let toast = document.querySelector('.toast-interactive');
@@ -798,5 +1178,5 @@ function showToast(message) {
   clearTimeout(window.__toastTimeout);
   window.__toastTimeout = setTimeout(() => {
     toast.classList.remove('show');
-  }, 3500);
+  }, 3200);
 }
