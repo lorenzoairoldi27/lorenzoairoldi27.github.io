@@ -1,10 +1,14 @@
 # Lorenzo Airoldi | Interactive Personal Hub
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 A modern, high-interactivity personal website and digital portfolio for **Lorenzo Airoldi** — software developer, builder, and creator.
 =======
 Personal website, portfolio, and blog of **Lorenzo Airoldi** — Real Estate Consultant.
 >>>>>>> 3bf703c5a8e490d412ab170be39e0a40878349a3
+=======
+A modern, high-interactivity personal website and digital portfolio for **Lorenzo Airoldi** — software developer, builder, and creator.
+>>>>>>> 158c991 (AG 3.0)
 
 ## Core Interactive Features
 - **Theme Engine**: Smooth dark mode (default obsidian slate `#080B11`) and light mode (warm alabaster `#F8FAFC`) with zero-flicker instant execution.
