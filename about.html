@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About me | Lorenzo Airoldi</title>
-  <meta name="description" content="About Lorenzo Airoldi. Background, technical stack, engineering principles, and journey as a software developer and creator.">
+  <title>About Me | Lorenzo Airoldi</title>
+  <meta name="description" content="About Lorenzo Airoldi. Interactive timeline, technical skill sandbox, and journey as a software developer and creator.">
   <meta name="author" content="Lorenzo Airoldi">
 
   <!-- Instant Theme Execution -->
@@ -17,267 +17,367 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About me | Lorenzo Airoldi">
-  <meta property="og:description" content="Background, technical stack, and principles of Lorenzo Airoldi.">
+  <meta property="og:title" content="About Me | Lorenzo Airoldi">
+  <meta property="og:description" content="Discover Lorenzo Airoldi's background, interactive milestone journey, and technical skillset.">
   <meta property="og:url" content="https://lorenzoairoldi27.github.io/about.html">
   <meta property="og:image" content="assets/img/logo.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo.png">
 
-  <!-- Google Fonts -->
+  <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Ambient Cursor Spotlight & Reading Progress -->
+  <div class="cursor-spotlight"></div>
+  <div class="scroll-progress-bar"></div>
+
   <!-- =========================================================================
-       Navigation Header (Order: Home, Blog, About me, Get in touch)
+       Navigation Header Dock (Order: Home, Blog, About me, Get in touch)
        ========================================================================= -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
-        <span class="brand-name">Lorenzo Airoldi</span>
+    <nav class="nav-dock" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link" aria-label="Lorenzo Airoldi Home">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-avatar" width="36" height="36">
+        <span>Lorenzo Airoldi</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="nav-desktop" aria-label="Primary Navigation">
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="about.html" class="nav-link active">About me</a>
-          <a href="contact.html" class="nav-link">Get in touch</a>
-        </div>
-
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </nav>
-
-      <!-- Mobile Actions -->
-      <div class="mobile-actions">
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button class="hamburger-btn" aria-label="Open mobile navigation">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+      <div class="nav-links-wrap">
+        <a href="index.html" class="dock-link">Home</a>
+        <a href="blog.html" class="dock-link">Blog</a>
+        <a href="about.html" class="dock-link active">About me</a>
+        <a href="contact.html" class="dock-link">Get in touch</a>
       </div>
-    </div>
+
+      <button class="theme-toggle-dock" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <button class="hamburger-dock" aria-label="Toggle mobile menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
   </header>
 
   <!-- Mobile Drawer -->
   <div class="mobile-backdrop"></div>
-  <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
-    <div class="mobile-menu-header">
-      <div class="brand-logo">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
-        <span class="brand-name">Lorenzo Airoldi</span>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="flex-between">
+        <div class="brand-link">
+          <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="34" height="34">
+          <span>Lorenzo Airoldi</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close menu" style="cursor:pointer; padding:0.4rem; color:var(--text-primary);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
-      <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
 
-    <nav class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="blog.html" class="mobile-nav-link">Blog</a>
-      <a href="about.html" class="mobile-nav-link active">About me</a>
-      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
-    </nav>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="blog.html" class="mobile-nav-item">Blog</a>
+        <a href="about.html" class="mobile-nav-item active">About me</a>
+        <a href="contact.html" class="mobile-nav-item">Get in touch</a>
+      </nav>
+    </div>
 
     <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
       <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
-      <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
+      <div class="text-mono" style="font-size:0.75rem; color:var(--text-muted); text-align:center;">
         contact@lorenzoairoldi.com
       </div>
     </div>
   </aside>
 
   <!-- =========================================================================
-       Page Header
+       Hero Section (Narrative + Interactive Portrait)
        ========================================================================= -->
-  <section class="page-header">
+  <section class="section" style="padding-top:calc(var(--header-height) + 4rem); padding-bottom:4rem;">
     <div class="container">
-      <div class="page-header-content reveal">
-        <div class="text-eyebrow">About me</div>
-        <h1 class="heading-1" style="margin-top:0.75rem; margin-bottom:0.75rem;">
-          Building software with care and curiosity.
-        </h1>
-        <p class="text-lead">
-          A deeper look into who I am, my technical background, engineering philosophy, and the tools I use every day.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       Bio & Narrative (With Lorenzo's Photo)
-       ========================================================================= -->
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items:center;">
-        <div class="reveal" style="display:flex; justify-content:center;">
-          <div class="portrait-wrapper" style="max-width:360px;">
+      <div class="hero-grid">
+        
+        <!-- Portrait Showcase with 3D Tilt & Aura -->
+        <div class="portrait-showcase">
+          <div class="portrait-aura"></div>
+          <div class="portrait-frame tilt-element">
             <img 
               src="assets/img/lorenzo.png" 
-              alt="Lorenzo Airoldi"
-              class="portrait-image"
-              width="360"
-              height="450"
+              alt="Lorenzo Airoldi Portrait" 
+              class="portrait-img-cutout"
+              width="420"
+              height="490"
             >
+            <div class="portrait-status-pill">
+              <div style="display:flex; align-items:center; gap:0.55rem;">
+                <span class="badge-pulse-dot"></span>
+                <span style="font-size:0.85rem; font-weight:700;">Software Engineer</span>
+              </div>
+              <span class="text-mono" style="font-size:0.75rem; color:var(--text-muted);">Craft & Systems</span>
+            </div>
           </div>
         </div>
 
-        <div class="reveal reveal-delay-1" style="display:flex; flex-direction:column; gap:1.25rem; font-size:1.02rem; line-height:1.75; color:var(--text-secondary);">
-          <div class="text-eyebrow">The Story</div>
-          <h2 class="heading-2" style="color:var(--text-primary);">
-            Hey there, I'm Lorenzo.
-          </h2>
-          <p>
-            I'm a software developer and creator based in Italy. I have a deep passion for building polished digital experiences, exploring distributed systems, and turning complex ideas into clean, usable code.
-          </p>
-          <p>
-            My journey in programming started from a desire to create and understand how things work under the hood. Over the years, I've worked across the full stack—from designing intuitive UI interfaces and themeable design systems to architecting high-performance backend microservices and CLI tools.
-          </p>
-          <p>
-            When I'm not writing code or experimenting with new technologies, you can find me reading about systems design, writing essays on productivity and technology, or exploring new cities and architecture.
-          </p>
-          <div style="margin-top:0.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="blog.html" class="btn btn-primary">Read my blog</a>
-            <a href="contact.html" class="btn btn-secondary">Get in touch</a>
+        <!-- Narrative Column -->
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="badge-pill">Biographical Overview</div>
+          <h1 class="heading-hero">
+            Building software with <br>
+            <span class="text-gradient">curiosity & precision.</span>
+          </h1>
+
+          <div style="color:var(--text-secondary); font-size:1.05rem; line-height:1.75; display:flex; flex-direction:column; gap:1rem;">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+
+          <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+            <a href="contact.html" class="btn btn-primary">
+              Work Together
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+            <a href="blog.html" class="btn btn-glass">
+              Read Notes
+            </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Tech Stack & Tooling
+       Interactive Skills Matrix Sandbox
        ========================================================================= -->
   <section class="section section-alt">
     <div class="container">
-      <div class="text-center reveal" style="max-width:620px; margin:0 auto 3rem;">
-        <div class="text-eyebrow">Technologies</div>
-        <h2 class="heading-1" style="margin-top:0.5rem; margin-bottom:0.5rem;">My Tech Stack</h2>
-        <p class="text-lead">Languages, frameworks, and tools I use to bring ideas to life.</p>
+      <div class="flex-between" style="margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div class="badge-pill" style="margin-bottom:0.75rem;">Interactive Sandbox</div>
+          <h2 class="heading-section">Technical Skills & Expertise</h2>
+        </div>
+        <p class="text-lead" style="max-width:440px; margin:0;">
+          Select a category or click any skill card to inspect proficiency context and applications.
+        </p>
       </div>
 
-      <div class="grid-3">
-        <!-- Group 1 -->
-        <div class="card reveal reveal-delay-1">
-          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Languages</h3>
-          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
-            <div>• TypeScript / JavaScript (ESNext)</div>
-            <div>• Python (FastAPI, Data, Scripting)</div>
-            <div>• Go (CLI tools, Concurrency, APIs)</div>
-            <div>• HTML5 & Modern CSS3 / SASS</div>
-            <div>• SQL (PostgreSQL, SQLite)</div>
-          </div>
+      <div class="skills-matrix-wrap">
+        <!-- Category Switcher Tabs -->
+        <div class="skill-category-tabs">
+          <button class="skill-tab-btn active" data-category="all">All Disciplines</button>
+          <button class="skill-tab-btn" data-category="frontend">Frontend & UI</button>
+          <button class="skill-tab-btn" data-category="backend">Backend & Systems</button>
+          <button class="skill-tab-btn" data-category="devops">Cloud & DevOps</button>
         </div>
 
-        <!-- Group 2 -->
-        <div class="card reveal reveal-delay-2">
-          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Frameworks & Libs</h3>
-          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
-            <div>• React & Next.js</div>
-            <div>• Node.js & Express</div>
-            <div>• Tailwind CSS & CSS Modules</div>
-            <div>• WebSockets & WebRTC</div>
-            <div>• REST & GraphQL APIs</div>
-          </div>
-        </div>
+        <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:2.5rem; align-items:start;">
+          
+          <!-- Cards Grid -->
+          <div class="skill-cards-grid">
+            
+            <div class="skill-interactive-card" data-category="frontend" data-name="TypeScript / JavaScript" data-desc="Strong typing, generics, AST manipulation, and reactive UI architecture.">
+              <div class="flex-between">
+                <span style="font-weight:700;">TypeScript / ESNext</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">95%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:95%;"></div>
+              </div>
+            </div>
 
-        <!-- Group 3 -->
-        <div class="card reveal reveal-delay-3">
-          <h3 class="heading-3" style="margin-bottom:1rem; color:var(--accent-light);">Tools & Environment</h3>
-          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.95rem; color:var(--text-secondary);">
-            <div>• Git & GitHub CI/CD Actions</div>
-            <div>• Docker & Containerization</div>
-            <div>• Linux & Bash Scripting</div>
-            <div>• VS Code & Neovim</div>
-            <div>• Figma (UI/UX Prototyping)</div>
+            <div class="skill-interactive-card" data-category="frontend" data-name="React & Next.js" data-desc="Server components, streaming SSR, fluid transitions, and tokenized design systems.">
+              <div class="flex-between">
+                <span style="font-weight:700;">React & Next.js</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">92%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:92%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-interactive-card" data-category="backend" data-name="Go (Golang)" data-desc="High-throughput microservices, CLI tool development, and concurrent network daemons.">
+              <div class="flex-between">
+                <span style="font-weight:700;">Go (Golang)</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">88%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:88%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-interactive-card" data-category="backend" data-name="Python" data-desc="FastAPI services, automation scripts, data pipelines, and numerical modeling.">
+              <div class="flex-between">
+                <span style="font-weight:700;">Python</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">86%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:86%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-interactive-card" data-category="devops" data-name="Docker & Containers" data-desc="Multi-stage container builds, orchestration, and isolated development environments.">
+              <div class="flex-between">
+                <span style="font-weight:700;">Docker & Containers</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">84%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:84%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-interactive-card" data-category="backend" data-name="PostgreSQL & SQL" data-desc="Relational schema design, query optimization, connection pooling, and indexing.">
+              <div class="flex-between">
+                <span style="font-weight:700;">PostgreSQL & SQL</span>
+                <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary);">85%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar-fill" style="width:85%;"></div>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Inspector Preview Panel -->
+          <div style="background:var(--bg-surface-elevated); border:1px solid var(--border-card); border-radius:var(--radius-md); padding:1.75rem;">
+            <div class="badge-pill" style="margin-bottom:1rem; font-size:0.72rem;">Skill Inspector</div>
+            <h3 id="inspector-skill-name" class="heading-card" style="margin-bottom:0.75rem;">TypeScript / JavaScript</h3>
+            <p id="inspector-skill-desc" style="color:var(--text-secondary); font-size:0.92rem; line-height:1.65;">
+              Strong typing, generics, AST manipulation, and reactive UI architecture. Click any skill to explore further context.
+            </p>
+            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border-subtle); display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted);">
+              <span>💡 Interactive state active</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       Principles
+       Interactive Clickable Timeline
        ========================================================================= -->
   <section class="section">
     <div class="container container-narrow">
-      <div class="reveal" style="margin-bottom:2.5rem;">
-        <div class="text-eyebrow">Philosophy</div>
-        <h2 class="heading-1" style="margin-top:0.5rem;">How I Approach Software</h2>
+      <div class="text-center" style="margin-bottom:3rem;">
+        <div class="badge-pill" style="margin:0 auto 0.75rem;">Interactive Milestones</div>
+        <h2 class="heading-section">Journey & Experience Timeline</h2>
+        <p class="text-lead" style="margin:0 auto; max-width:540px;">
+          Click any milestone to expand detailed accomplishments, technologies, and context.
+        </p>
       </div>
 
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Principle 01</div>
-          <h3 class="timeline-title">Simplicity Over Cleverness</h3>
-          <p class="timeline-desc">
-            Clean, readable code with minimal dependencies is always easier to debug, maintain, and scale than over-engineered abstractions.
-          </p>
+      <!-- Interactive Timeline Component -->
+      <div class="timeline-interactive">
+        
+        <!-- Milestone 1 -->
+        <div class="timeline-node expanded">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-card">
+            <div class="flex-between">
+              <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary); font-weight:700;">2024 — PRESENT</span>
+              <span class="badge-pill" style="font-size:0.72rem;">Current</span>
+            </div>
+            <h3 style="font-size:1.25rem; margin:0.4rem 0;">Independent Full-Stack Developer & Builder</h3>
+            <p style="color:var(--text-secondary); font-size:0.92rem; line-height:1.6;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+            </p>
+            <div class="timeline-details">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-bottom:0.75rem;">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <div class="tech-cloud">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Principle 02</div>
-          <h3 class="timeline-title">Obsession with Performance & UX</h3>
-          <p class="timeline-desc">
-            Speed is a feature. Fast load times, responsive interactions, and thoughtful visual feedback elevate good software into exceptional software.
-          </p>
+        <!-- Milestone 2 -->
+        <div class="timeline-node">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-card">
+            <div class="flex-between">
+              <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary); font-weight:700;">2022 — 2024</span>
+              <span class="badge-pill" style="font-size:0.72rem;">Systems & APIs</span>
+            </div>
+            <h3 style="font-size:1.25rem; margin:0.4rem 0;">Systems Engineering & Distributed Architectures</h3>
+            <p style="color:var(--text-secondary); font-size:0.92rem; line-height:1.6;">
+              Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit.
+            </p>
+            <div class="timeline-details">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-bottom:0.75rem;">
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed.
+              </p>
+              <div class="tech-cloud">
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">Redis</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-year">Principle 03</div>
-          <h3 class="timeline-title">Continuous Learning & Building</h3>
-          <p class="timeline-desc">
-            The best way to master new concepts is by shipping real projects, testing assumptions, and sharing the journey openly.
-          </p>
+        <!-- Milestone 3 -->
+        <div class="timeline-node">
+          <div class="timeline-bullet"></div>
+          <div class="timeline-card">
+            <div class="flex-between">
+              <span class="text-mono" style="font-size:0.8rem; color:var(--accent-primary); font-weight:700;">2020 — 2022</span>
+              <span class="badge-pill" style="font-size:0.72rem;">Origins</span>
+            </div>
+            <h3 style="font-size:1.25rem; margin:0.4rem 0;">Web Fundamentals & Open Source Exploration</h3>
+            <p style="color:var(--text-secondary); font-size:0.92rem; line-height:1.6;">
+              Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris fusce nec tellus.
+            </p>
+            <div class="timeline-details">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-bottom:0.75rem;">
+                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada.
+              </p>
+              <div class="tech-cloud">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Linux</span>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -287,34 +387,38 @@
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div style="display:flex; align-items:center; gap:0.75rem;">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
-        <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
-        <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
+      <div style="display:flex; align-items:center; gap:0.85rem;">
+        <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="32" height="32">
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Lorenzo Airoldi</div>
+          <div class="live-time-display text-mono" style="font-size:0.75rem; color:var(--text-muted);">
+            Milan, Italy
+          </div>
+        </div>
       </div>
 
       <div class="footer-nav">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="blog.html" class="footer-link">Blog</a>
-        <a href="about.html" class="footer-link">About me</a>
-        <a href="contact.html" class="footer-link">Get in touch</a>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About me</a>
+        <a href="contact.html">Get in touch</a>
       </div>
 
       <div class="footer-socials">
-        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
           </svg>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="mailto:contact@lorenzoairoldi.com" class="social-circle-btn" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>

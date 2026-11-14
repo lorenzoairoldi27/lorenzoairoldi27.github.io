@@ -25,107 +25,92 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo.png">
 
-  <!-- Google Fonts -->
+  <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Ambient Cursor Spotlight & Reading Progress -->
+  <div class="cursor-spotlight"></div>
+  <div class="scroll-progress-bar"></div>
+
   <!-- =========================================================================
-       Navigation Header (Order: Home, Blog, About me, Get in touch)
+       Navigation Header Dock (Order: Home, Blog, About me, Get in touch)
        ========================================================================= -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="Lorenzo Airoldi Home">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="40" height="40">
-        <span class="brand-name">Lorenzo Airoldi</span>
+    <nav class="nav-dock" aria-label="Main Navigation">
+      <a href="index.html" class="brand-link" aria-label="Lorenzo Airoldi Home">
+        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-avatar" width="36" height="36">
+        <span>Lorenzo Airoldi</span>
       </a>
 
-      <nav class="nav-desktop" aria-label="Primary Navigation">
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="blog.html" class="nav-link active">Blog</a>
-          <a href="about.html" class="nav-link">About me</a>
-          <a href="contact.html" class="nav-link">Get in touch</a>
-        </div>
-
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </nav>
-
-      <!-- Mobile Actions -->
-      <div class="mobile-actions">
-        <button class="theme-toggle-btn" aria-label="Toggle dark / light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button class="hamburger-btn" aria-label="Open mobile navigation">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+      <div class="nav-links-wrap">
+        <a href="index.html" class="dock-link">Home</a>
+        <a href="blog.html" class="dock-link active">Blog</a>
+        <a href="about.html" class="dock-link">About me</a>
+        <a href="contact.html" class="dock-link">Get in touch</a>
       </div>
-    </div>
+
+      <button class="theme-toggle-dock" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <button class="hamburger-dock" aria-label="Toggle mobile menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
   </header>
 
   <!-- Mobile Drawer -->
   <div class="mobile-backdrop"></div>
-  <aside class="mobile-menu" aria-label="Mobile Navigation Menu">
-    <div class="mobile-menu-header">
-      <div class="brand-logo">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="36" height="36">
-        <span class="brand-name">Lorenzo Airoldi</span>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="flex-between">
+        <div class="brand-link">
+          <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="34" height="34">
+          <span>Lorenzo Airoldi</span>
+        </div>
+        <button class="mobile-drawer-close" aria-label="Close menu" style="cursor:pointer; padding:0.4rem; color:var(--text-primary);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
-      <button class="mobile-close-btn" aria-label="Close mobile menu" style="cursor:pointer; padding:0.5rem; color:var(--text-primary);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
 
-    <nav class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="blog.html" class="mobile-nav-link active">Blog</a>
-      <a href="about.html" class="mobile-nav-link">About me</a>
-      <a href="contact.html" class="mobile-nav-link">Get in touch</a>
-    </nav>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-item">Home</a>
+        <a href="blog.html" class="mobile-nav-item active">Blog</a>
+        <a href="about.html" class="mobile-nav-item">About me</a>
+        <a href="contact.html" class="mobile-nav-item">Get in touch</a>
+      </nav>
+    </div>
 
     <div style="padding-top:1.5rem; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:0.75rem;">
       <a href="contact.html" class="btn btn-primary" style="width:100%;">Get in touch</a>
-      <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
+      <div class="text-mono" style="font-size:0.75rem; color:var(--text-muted); text-align:center;">
         contact@lorenzoairoldi.com
       </div>
     </div>
@@ -134,117 +119,87 @@
   <!-- =========================================================================
        Article Content
        ========================================================================= -->
-  <article class="section" style="padding-top:calc(var(--header-height) + 3rem);">
+  <article class="section" style="padding-top:calc(var(--header-height) + 4.5rem);">
     <div class="container container-narrow">
       
-      <!-- Back Navigation & Meta -->
-      <div style="margin-bottom:2rem;">
-        <a href="blog.html" class="btn-link" style="margin-bottom:1.5rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform:rotate(180deg); margin-right:4px;">
+      <!-- Back to Blog & Meta -->
+      <div style="margin-bottom:2.5rem;">
+        <a href="blog.html" class="btn-link" style="color:var(--text-muted); font-size:0.9rem; display:inline-flex; align-items:center; gap:0.45rem; margin-bottom:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform:rotate(180deg);">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
-          Back to Blog
+          Back to all articles
         </a>
-        <div style="display:flex; align-items:center; gap:0.75rem; margin-top:1rem;">
-          <span class="badge">Development</span>
-          <span style="color:var(--text-muted); font-size:0.85rem;">August 24, 2026</span>
-          <span class="blog-meta-dot"></span>
-          <span style="color:var(--text-muted); font-size:0.85rem;">6 min read</span>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <span class="badge-pill" style="font-size:0.75rem;">Engineering</span>
+          <span class="text-mono" style="color:var(--text-muted); font-size:0.8rem;">August 24, 2026</span>
+          <span style="color:var(--text-muted);">•</span>
+          <span class="text-mono" style="color:var(--text-muted); font-size:0.8rem;">6 min read</span>
         </div>
       </div>
 
-      <!-- Title & Excerpt -->
-      <h1 class="heading-display" style="margin-bottom:1.5rem;">
-        Architecting Modern Web Applications in 2026: Performance, Simplicity, and UX
+      <!-- Title & Lead -->
+      <h1 class="heading-hero" style="font-size:clamp(2.2rem, 4vw, 3.25rem); margin-bottom:1.5rem;">
+        Architecting Modern Web Applications in 2026: Performance & Fluid UX
       </h1>
-      <p class="text-lead" style="font-size:1.2rem; line-height:1.7; color:var(--text-secondary); margin-bottom:2.5rem;">
-        In an era of increasingly complex build pipelines and endless framework churn, the most resilient web applications are built on simple foundations, zero-runtime tokens, and thoughtful user interfaces.
+
+      <p class="text-lead" style="font-size:1.2rem; line-height:1.75; margin-bottom:3rem; color:var(--text-secondary);">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi nulla quis sem at nibh elementum imperdiet.
       </p>
 
-      <!-- Article Body -->
-      <div style="font-size:1.1rem; line-height:1.8; color:var(--text-secondary);">
-        <p style="margin-bottom:1.5rem;">
-          The web ecosystem moves fast. Over the past few years, we've seen rendering paradigms swing from client-side single-page apps (SPAs) to complex server components, and now back toward lightweight, edge-rendered micro-frontends with minimal JavaScript.
+      <!-- Article Body with Placeholder Copy -->
+      <div style="font-size:1.08rem; line-height:1.85; color:var(--text-secondary); display:flex; flex-direction:column; gap:1.75rem;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
 
-        <p style="margin-bottom:1.5rem;">
-          Through building and maintaining various web systems, I've found that long-term maintainability almost always correlates with simplicity. When you strip away unnecessary abstractions and leverage the modern capabilities of vanilla CSS and standard web APIs, your application becomes faster, lighter, and vastly easier to debug.
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
-        <blockquote style="margin:2.5rem 0; padding:1.75rem 2rem; background-color:var(--bg-secondary); border-left:4px solid var(--accent); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-family:var(--font-serif); font-size:1.3rem; line-height:1.5; color:var(--text-primary); font-style:italic;">
-          “Simplicity is not the lack of sophistication. It is the consequence of mastering complexity.”
+        <blockquote style="margin:2rem 0; padding:1.5rem 2rem; background:var(--bg-surface); border-left:4px solid var(--accent-primary); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-family:var(--font-display); font-size:1.35rem; line-height:1.5; color:var(--text-primary); font-weight:600;">
+          “Simplicity is not the lack of clutter. It is the consequence of mastering complexity.”
         </blockquote>
 
-        <h2 class="heading-2" style="margin-top:2.5rem; margin-bottom:1rem; color:var(--text-primary);">1. The Power of CSS Custom Properties for Theming</h2>
-        <p style="margin-bottom:1.5rem;">
-          Building fluid dark and light mode themes used to require heavy runtime CSS-in-JS libraries that bloated JavaScript bundle sizes. Today, standard CSS custom properties combined with a tiny inline execution script in the document `<head>` can handle instant, zero-flicker theme hydration with zero JavaScript overhead.
+        <h2 class="heading-section" style="font-size:1.75rem; margin-top:1.5rem; color:var(--text-primary);">
+          1. Component Primitives and Zero-Runtime Styling
+        </h2>
+        <p>
+          Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
         </p>
 
-        <!-- Callout Box -->
-        <div style="background-color:var(--accent-subtle); border:1px solid rgba(99,102,241,0.25); border-radius:var(--radius-md); padding:1.5rem; margin:2.5rem 0;">
-          <div style="font-weight:700; font-size:0.9rem; color:var(--accent-light); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            Key Takeaway
+        <div style="background:var(--accent-subtle); border:1px solid rgba(99,102,241,0.25); border-radius:var(--radius-md); padding:1.5rem; margin:1rem 0;">
+          <div style="font-weight:700; font-size:0.85rem; color:var(--accent-primary); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;">
+            <span>💡 Architectural Note</span>
           </div>
           <p style="margin:0; font-size:0.95rem; color:var(--text-primary); line-height:1.6;">
-            Always prioritize native platform primitives before pulling in third-party npm dependencies. Modern CSS Grid, Flexbox, and Custom Properties solve 95% of layout and theming challenges out of the box.
+            Native CSS Custom Properties combined with modern browser primitives provide instant zero-flicker hydration with zero JavaScript bundle overhead.
           </p>
         </div>
 
-        <h2 class="heading-2" style="margin-top:2.5rem; margin-bottom:1rem; color:var(--text-primary);">2. Keeping Dependencies Lean</h2>
-        <p style="margin-bottom:1.5rem;">
-          Every dependency you add is code you have to ship, update, and trust. By establishing strict guidelines for adding libraries, prioritizing zero-dependency packages, and writing clean standard TypeScript, teams can drastically reduce vulnerability footprints and build times.
+        <h2 class="heading-section" style="font-size:1.75rem; margin-top:1.5rem; color:var(--text-primary);">
+          2. Micro-Interactions as Feedback Loops
+        </h2>
+        <p>
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
         </p>
 
-        <!-- Author Profile Card With Photo -->
-        <div style="display:flex; align-items:center; gap:1.25rem; padding:1.75rem; background-color:var(--bg-card); border:1px solid var(--border-card); border-radius:var(--radius-md); margin-top:3.5rem;">
+        <!-- Author Card with Transparent Portrait -->
+        <div style="display:flex; align-items:center; gap:1.5rem; padding:2rem; background:var(--bg-surface); border:1px solid var(--border-card); border-radius:var(--radius-lg); margin-top:3rem;">
           <img 
-            src="assets/img/lorenzo.jpg" 
+            src="assets/img/lorenzo.png" 
             alt="Lorenzo Airoldi"
-            style="width:58px; height:58px; border-radius:50%; object-fit:cover; flex-shrink:0; border:2px solid var(--accent);"
+            style="width:68px; height:68px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid var(--accent-primary); background:var(--bg-surface-elevated); flex-shrink:0;"
           >
           <div>
-            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-light); font-weight:700; margin-bottom:0.25rem;">Written By</div>
-            <h3 class="heading-4" style="margin-bottom:0.25rem;">Lorenzo Airoldi</h3>
-            <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5; margin:0;">
-              Software developer and creator exploring web architectures, distributed systems, and minimalist digital design.
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-primary); font-weight:700; margin-bottom:0.25rem;">Written By</div>
+            <h3 style="font-size:1.15rem; margin-bottom:0.25rem;">Lorenzo Airoldi</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; margin:0;">
+              Software developer and creator exploring reactive systems, low-latency architectures, and modern digital design.
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Related Posts -->
-      <div style="margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--border-subtle);">
-        <div class="flex-between" style="margin-bottom:1.5rem;">
-          <h3 class="heading-3">More from the Blog</h3>
-          <a href="blog.html" class="btn-link">View all <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-        </div>
-
-        <div class="grid-2">
-          <article class="blog-card">
-            <div class="blog-content">
-              <h4 class="heading-4"><a href="article.html">The Art of Minimalist UI Design</a></h4>
-              <p class="blog-excerpt" style="font-size:0.85rem; margin-top:0.5rem;">Why removing visual clutter and refining typography leads to higher user trust.</p>
-              <div class="blog-footer">
-                <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <div class="blog-content">
-              <h4 class="heading-4"><a href="article.html">Building Fast, Resilient Systems from Scratch</a></h4>
-              <p class="blog-excerpt" style="font-size:0.85rem; margin-top:0.5rem;">Practical techniques for avoiding dependency bloat and managing state efficiently.</p>
-              <div class="blog-footer">
-                <a href="article.html" class="btn-link">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-              </div>
-            </div>
-          </article>
-        </div>
       </div>
 
     </div>
@@ -255,34 +210,38 @@
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div style="display:flex; align-items:center; gap:0.75rem;">
-        <img src="assets/img/logo.png" alt="Lorenzo Airoldi Logo" class="brand-logo-img" width="28" height="28" style="width:28px; height:28px;">
-        <span style="font-weight:600; color:var(--text-primary); font-size:0.95rem;">Lorenzo Airoldi</span>
-        <span style="color:var(--text-muted); font-size:0.85rem;">© 2026</span>
+      <div style="display:flex; align-items:center; gap:0.85rem;">
+        <img src="assets/img/logo.png" alt="Logo" class="brand-avatar" width="32" height="32">
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Lorenzo Airoldi</div>
+          <div class="live-time-display text-mono" style="font-size:0.75rem; color:var(--text-muted);">
+            Milan, Italy
+          </div>
+        </div>
       </div>
 
       <div class="footer-nav">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="blog.html" class="footer-link">Blog</a>
-        <a href="about.html" class="footer-link">About me</a>
-        <a href="contact.html" class="footer-link">Get in touch</a>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About me</a>
+        <a href="contact.html">Get in touch</a>
       </div>
 
       <div class="footer-socials">
-        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://github.com/lorenzoairoldi27" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
           </svg>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
         </a>
-        <a href="mailto:contact@lorenzoairoldi.com" class="social-icon-btn" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="mailto:contact@lorenzoairoldi.com" class="social-circle-btn" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>

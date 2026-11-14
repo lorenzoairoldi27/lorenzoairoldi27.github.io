@@ -1,15 +1,20 @@
-# Lorenzo Airoldi | Personal Website
+# Lorenzo Airoldi | Interactive Personal Hub
 
-Personal website, portfolio, and blog of **Lorenzo Airoldi** — software developer, builder, and creator.
+A modern, high-interactivity personal website and digital portfolio for **Lorenzo Airoldi** — software developer, builder, and creator.
 
-## Features & Aesthetic
-- **Theme**: Dark theme by default (Obsidian Slate `#0B0F17` / `#151D2F`) with a fast, instant Light Mode switch (`#F8FAFC` / `#FFFFFF`).
-- **Brand Identity**: Circular geometric "LA" monogram logo paired with Royal Indigo (`#6366F1`) accents.
-- **Portrait**: High-quality personal portrait integration in Home hero, About narrative, and Blog author card.
-- **Typography**: `Playfair Display` serif headers + `Plus Jakarta Sans` UI & body text.
+## Core Interactive Features
+- **Theme Engine**: Smooth dark mode (default obsidian slate `#080B11`) and light mode (warm alabaster `#F8FAFC`) with zero-flicker instant execution.
+- **Dynamic Particle Background**: Responsive canvas constellation engine with mouse interaction and auto-pause when offscreen.
+- **Card Spotlight Tracking**: Cursor-following radial spotlight on Bento and article cards using CSS variable coordinates (`--mouse-x`, `--mouse-y`).
+- **3D Tilt Physics**: Perspective tilt on portrait frames and interactive modules that smoothly tracks cursor coordinates.
+- **Live Local Time Widget**: Real-time European clock for Milan, Italy.
+- **Dynamic Filter & Search (Blog)**: Instant category filtering, real-time debounced keyword search, and local-storage bookmarking with count indicators.
+- **Interactive Multi-Step Contact Form**: Step-by-step project scoping, floating label inputs, real-time validation, character counting, and animated success confirmation.
+- **One-Click Clipboard Triggers**: Direct email and profile URL copying with floating toast notifications.
 
-## Navigation Order & Page Structure
-1. **Home (`index.html`)**: Developer greeting with portrait photo, featured software projects, recent blog posts, and connect CTA.
-2. **Blog (`blog.html`)**: Essays and notes on development, UI design, distributed systems, and thoughts with live category filtering and real-time search.
-3. **About me (`about.html`)**: Personal story with portrait photo, technical stack (TypeScript, React, Node, Python, Go), and software engineering principles.
-4. **Get in touch (`contact.html`)**: Direct channels (email, GitHub, LinkedIn) and clean message form.
+## Page Structure
+1. **Home (`index.html`)**: Interactive Hero with particle canvas & 3D portrait showcase, 12-column Bento Grid (Terminal Sandbox, Animated Metrics, Tech Cloud, Deep Work Widget), and Recent Notes teaser.
+2. **Blog (`blog.html`)**: Filterable & searchable article grid with category pills, bookmark toggle engine, and quick-preview modal drawer.
+3. **About Me (`about.html`)**: Biographical hero with 3D portrait showcase, interactive skills matrix with context inspector, and clickable accordion timeline.
+4. **Get in Touch (`contact.html`)**: Direct touchpoints with one-click copy buttons, live Milan clock, and dynamic multi-step project inquiry form.
+5. **Article Reader (`article.html`)**: Editorial reading layout with reading progress bar and transparent author card.
